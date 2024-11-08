@@ -91,7 +91,7 @@ const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.lan
   display: flex;
   padding: 0.75rem; /* 12px */
   border-bottom: 1px solid var(--border);
-  font-size: 0.875rem; /* 14px */
+  font-size: 14px;
   line-height: 1.25rem; /* 20px */
 }
 
@@ -118,7 +118,7 @@ const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.lan
 
 .code-wrapper {
   overflow-x: auto;
-  font-size: 0.875rem; /* 14px */
+  font-size: 14px;
   line-height: 1.25rem; /* 20px */
   padding: 0.75rem 0; /* 12px */
 }

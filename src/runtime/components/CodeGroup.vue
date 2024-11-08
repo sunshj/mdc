@@ -35,11 +35,11 @@
 import { computed, ref, useSlots } from '#imports'
 import { iconMap } from '../config'
 
-const defaultSlots = useSlots().default?.() || []
+const defaultSlots = computed(() => useSlots()?.default?.() || [])
 
 const activeTabIndex = ref(0)
 
-const code = computed(() => defaultSlots[activeTabIndex.value]?.props?.code)
+const code = computed(() => defaultSlots.value[activeTabIndex.value]?.props?.code)
 
 function icon(props: any) {
   return props?.icon || iconMap.get(props?.filename?.toLowerCase()) || iconMap.get(props?.language)
@@ -58,6 +58,7 @@ function label(props: any) {
   border: 1px solid var(--border);
   background-color: var(--background);
   margin: 1rem 0;
+  font-size: 14px;
 }
 
 .code-group {
@@ -71,7 +72,7 @@ function label(props: any) {
   flex-direction: row;
   background-color: var(--background);
   border-bottom: 1px solid var(--border);
-  padding: 5px;
+  padding: 5px 12px 5px 5px;
 }
 
 .code-group-tab {

@@ -24,6 +24,8 @@
 </template>
 
 <script setup lang="ts">
+import { useEventBus } from '@vueuse/core'
+
 const links = [
   {
     name: 'index',
@@ -42,6 +44,12 @@ const links = [
 function onLinkChange(event: Event) {
   navigateTo((event.target as HTMLSelectElement).value)
 }
+
+const bus = useEventBus('mdc:copied')
+
+bus.on(data => {
+  console.log('copied code: ', data)
+})
 </script>
 
 <style>

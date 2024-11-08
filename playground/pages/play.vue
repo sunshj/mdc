@@ -41,6 +41,7 @@ const input = ref(`
 const output = ref<Array<{ id: number; value: string }>>([])
 
 function send() {
+  if (!input.value.trim()) return
   output.value.unshift({
     id: Date.now(),
     value: input.value

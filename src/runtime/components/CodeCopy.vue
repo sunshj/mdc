@@ -8,13 +8,18 @@
 </template>
 
 <script setup lang="ts">
-import { useClipboard } from '@vueuse/core'
+import { useClipboard, useEventBus, whenever } from '@vueuse/core'
 
 const props = defineProps<{
   code: string
 }>()
 
+const bus = useEventBus('mdc:copied')
 const { copy, copied } = useClipboard({ legacy: true })
+
+whenever(copied, () => {
+  bus.emit(props.code)
+})
 </script>
 
 <style scoped>

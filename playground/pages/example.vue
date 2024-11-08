@@ -1,11 +1,13 @@
 <template>
   <div class="container">
-    <MDC :value="exampleMd" />
+    <MDC v-if="data" :value="data" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import exampleMd from '~/assets/example.md?raw'
+import exampleMdUrl from '~/assets/example.md?url'
+
+const { data } = useFetch(exampleMdUrl)
 </script>
 
 <style scoped></style>
