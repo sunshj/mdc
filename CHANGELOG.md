@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.1.1
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.0...v0.1.1)
+
+### 🚀 Enhancements
+
+- **playground:** Add shortcut and smart icon sections ([daaa6ed](https://github.com/sunshj/mdc/commit/daaa6ed))
+
+### 💅 Refactors
+
+- **package.json:** Modify dev script to include dev:prepare ([9bbbc78](https://github.com/sunshj/mdc/commit/9bbbc78))
+
+### 🏡 Chore
+
+- **release:** V0.1.0 ([580f873](https://github.com/sunshj/mdc/commit/580f873))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.0
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.0.3...v0.1.0)
