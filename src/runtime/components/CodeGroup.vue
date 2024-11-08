@@ -73,6 +73,7 @@ function label(props: any) {
   background-color: var(--background);
   border-bottom: 1px solid var(--border);
   padding: 5px 12px 5px 5px;
+  overflow-x: auto;
 }
 
 .code-group-tab {
