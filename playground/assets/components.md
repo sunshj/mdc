@@ -368,3 +368,33 @@ _Just an italic paragraph._
 
 ::
  
+
+ ### Shortcut
+
+::code-group
+  ::div{label="Preview" style="padding:10px"}
+    :shortcut{value="meta"} :shortcut{value="K"} :br
+    :shortcut{value="xs" size="xs"} :shortcut{value="sm"} :shortcut{value="md" size="md"}
+  ::
+  ```mdc [Code]
+  :shortcut{value="meta"} :shortcut{value="K"} :br
+  :shortcut{value="xs" size="xs"} :shortcut{value="sm"} :shortcut{value="md" size="md"}
+  ```
+::
+
+
+### Smart Icon
+
+::code-group
+  ::div{label="Preview" style="padding:10px"}
+    :smart-icon{name="lucide:sun"}
+    :smart-icon{name="lucide:moon" size="24"}
+    :smart-icon{name="https://me.sunshj.top/images/favicon.png" size="32"}
+  ::
+  ```mdc [Code]
+  :smart-icon{name="lucide:sun"}
+  :smart-icon{name="lucide:moon" size="24"}
+  :smart-icon{name="https://me.sunshj.top/images/favicon.png" size="32"}
+  ```
+
+::
