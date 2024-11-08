@@ -10,5 +10,8 @@
   "dependencies": {
     "@nuxtjs/color-mode": "^3.5.2",
     "@sunshj/mdc": "workspace:*"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.6.0"
   }
 }
