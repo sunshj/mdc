@@ -1,11 +1,5 @@
 <template>
   <div class="selector">
-    <select v-model="option">
-      <option value="index.md">index.md</option>
-      <option value="example.md">example.md</option>
-      <option value="tailwind.md">tailwind.md</option>
-    </select>
-
     <select v-model="$colorMode.value">
       <option value="light">light</option>
       <option value="dark">dark</option>
@@ -13,17 +7,12 @@
   </div>
 
   <div class="container">
-    <MDC :value="data!" />
+    <MDC :value="exampleMd" />
   </div>
 </template>
 
 <script setup lang="ts">
-const option = ref('index.md')
-
-const { data } = useFetch<string>(
-  () =>
-    `https://raw.githubusercontent.com/nuxt-themes/typography/refs/heads/main/.demo/content/${option.value}`
-)
+import exampleMd from '~/assets/example.md?raw'
 </script>
 
 <style scoped>
