@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.0.3...v0.1.0)
+
+### 🚀 Enhancements
+
+- Add event  for code copied ([b1b6613](https://github.com/sunshj/mdc/commit/b1b6613))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.0.3
 
 
