@@ -20,6 +20,7 @@
     "access": "public"
   },
   "scripts": {
+    "postinstall": "npm run dev:prepare",
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
