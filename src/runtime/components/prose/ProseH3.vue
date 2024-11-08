@@ -25,10 +25,8 @@ const generate = computed(
   font-size: 1.5rem; /* 24px */
   line-height: 2rem; /* 32px */
   font-weight: 600;
+  text-decoration: none;
   letter-spacing: -0.025em;
-}
-
-.prose-h3:not(:first-child) {
-  margin-top: 2rem; /* 32px */
+  margin: 0.5rem 0; /* 16px */
 }
 </style>

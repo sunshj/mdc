@@ -17,11 +17,25 @@
 </template>
 
 <script lang="ts" setup>
-const input = ref(`\`\`\`js
-export default defineNuxtConfig({
-  extends: '@nuxt-themes/typography'
-})
-\`\`\`
+const input = ref(`
+::code-group
+  \`\`\`bash [npm]
+  npm run dev
+  \`\`\`
+
+  \`\`\`bash [pnpm]
+  pnpm dev
+  \`\`\`
+
+  \`\`\`bash [yarn]
+  yarn dev
+  \`\`\`
+
+  \`\`\`bash [bun]
+  bun run dev
+  \`\`\`
+::
+
 `)
 
 const output = ref<Array<{ id: number; value: string }>>([])
@@ -38,8 +52,10 @@ function send() {
 <style scoped>
 textarea {
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   padding: 10px;
+  color: var(--foreground);
+  background-color: var(--background);
   font-size: 16px;
 }
 

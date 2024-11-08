@@ -1,20 +1,20 @@
 <template>
-  <div class="card" :class="{ 'in-group': inGroup }">
-    <div v-if="!inGroup && filename" class="card-header">
+  <div class="card" :class="{ 'no-header': !showHeader }">
+    <div v-if="showHeader && filename" class="card-header">
       <SmartIcon v-if="icon" :name="icon" class="icon" />
       {{ filename }}
-      <CodeCopy :code="code" class="copy-btn" />
+      <CodeCopy :code class="copy-btn" />
     </div>
 
     <span v-if="!filename" class="absolute-copy-btn">
-      <CodeCopy :code="code" />
+      <CodeCopy :code />
     </span>
 
     <div class="card-body">
       <div
         class="code-wrapper"
         :class="{
-          'inline-copy': !inGroup && !filename,
+          'inline-copy': showHeader && !filename,
           'no-language': !language
         }"
       >
@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import type { PropType } from '#imports'
-import { fileIconMap } from '../../config'
+import { iconMap } from '../../config'
 import type { BuiltinLanguage } from 'shiki'
 
 const props = defineProps({
@@ -44,9 +44,9 @@ const props = defineProps({
     type: String,
     default: null
   },
-  inGroup: {
+  showHeader: {
     type: Boolean,
-    default: false
+    default: true
   },
   highlights: {
     type: Array as () => number[],
@@ -67,7 +67,6 @@ const props = defineProps({
   }
 })
 
-const iconMap = new Map(Object.entries(fileIconMap))
 const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language)
 </script>
 
@@ -78,21 +77,14 @@ const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.lan
   border-radius: 0.5rem; /* 8px */
   border: 1px solid var(--border);
   background-color: var(--background);
+  margin: 1rem 0;
 }
 
-.card:not(:first-child) {
-  margin-top: 1.25rem; /* 20px */
-}
-
-.card:not(:last-child) {
-  margin-top: 1.25rem; /* 20px */
-}
-
-.in-group {
+.no-header {
   border-style: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .card-header {
@@ -154,6 +146,7 @@ const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.lan
   margin: 0;
   white-space: normal;
 }
+
 .prose-pre code {
   white-space: pre;
 }
@@ -163,6 +156,7 @@ const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.lan
   min-height: 1rem;
 }
 
+/* line diff */
 .prose-pre code .line.diff.remove {
   background-color: #f43f5e24;
   opacity: 0.6;
@@ -184,5 +178,15 @@ const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.lan
   color: #23b73c;
   position: absolute;
   left: 5px;
+}
+
+/* disable language-md line diff  */
+.language-md.prose-pre code .line.diff {
+  background-color: inherit !important;
+  opacity: inherit !important;
+}
+
+.language-md.prose-pre code .line.diff::before {
+  content: none !important;
 }
 </style>

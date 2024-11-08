@@ -1,45 +1,61 @@
 <template>
-  <div class="selector">
-    <select v-model="$colorMode.value">
-      <option value="light">light</option>
-      <option value="dark">dark</option>
-    </select>
-  </div>
-
   <div class="container">
-    <MDC :value="exampleMd" />
+    <MDC :value="componentsMd">
+      <template #default="{ body, toc }">
+        <div class="toc">
+          <div v-if="toc.links?.length" class="toc-links">
+            <NuxtLink v-for="link in toc.links" :key="link.id" :href="`#${link.id}`">
+              {{ link.text }}
+            </NuxtLink>
+          </div>
+        </div>
+        <MDCRenderer :body />
+      </template>
+    </MDC>
   </div>
 </template>
 
 <script setup lang="ts">
-import exampleMd from '~/assets/example.md?raw'
+import componentsMd from '~/assets/components.md?raw'
 </script>
 
 <style scoped>
-.selector {
+.toc {
   position: fixed;
-  top: 0;
+  top: 30px;
   left: 0;
-  width: 120px;
+  z-index: 10;
+  width: 160px;
+  height: calc(100vh - 30px);
   background-color: cadetblue;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
 }
 
-select {
-  width: 100%;
+@media screen and (max-width: 768px) {
+  .toc {
+    display: none;
+  }
+}
+
+.toc-links {
+  overflow-y: auto;
   height: 100%;
-  border: none;
-  background-color: transparent;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
 }
 
-option {
-  background-color: cadetblue;
+.toc a {
+  display: block;
+  padding: 10px;
   color: white;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.toc a:hover {
+  background-color: white;
+  color: cadetblue;
 }
 </style>

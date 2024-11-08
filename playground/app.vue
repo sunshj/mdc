@@ -1,6 +1,48 @@
 <template>
+  <div class="selector">
+    <select
+      v-model="$colorMode.value"
+      @change="$colorMode.preference = ($event.target as HTMLSelectElement).value"
+    >
+      <option value="light">light</option>
+      <option value="dark">dark</option>
+    </select>
+
+    <select :value="$route.path" @change="onLinkChange">
+      <option
+        v-for="link in links"
+        :key="link.name"
+        :value="link.path"
+        :selected="link.path === $route.path"
+      >
+        {{ link.name }}
+      </option>
+    </select>
+  </div>
+
   <NuxtPage />
 </template>
+
+<script setup lang="ts">
+const links = [
+  {
+    name: 'index',
+    path: '/'
+  },
+  {
+    name: 'example',
+    path: '/example'
+  },
+  {
+    name: 'play',
+    path: '/play'
+  }
+]
+
+function onLinkChange(event: Event) {
+  navigateTo((event.target as HTMLSelectElement).value)
+}
+</script>
 
 <style>
 * {
@@ -19,6 +61,46 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 10px;
-  max-width: 42rem; /* 672px */
+  max-width: 768px;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+</style>
+
+<style scoped>
+.selector {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: cadetblue;
+}
+
+select {
+  width: fit-content;
+  padding: 2px 4px;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+option {
+  background-color: cadetblue;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
 }
 </style>

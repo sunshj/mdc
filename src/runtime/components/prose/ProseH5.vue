@@ -26,9 +26,6 @@ const generate = computed(
   line-height: 1.75rem; /* 28px */
   font-weight: 600;
   letter-spacing: -0.025em;
-}
-
-.prose-h5:not(:first-child) {
-  margin-top: 1.5rem; /* 24px */
+  text-decoration: none;
 }
 </style>

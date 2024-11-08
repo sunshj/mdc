@@ -1,13 +1,13 @@
 <template>
-  <NuxtLink :href :target :external class="prose-a">
+  <NuxtLink :href :target="refinedTarget" :external class="prose-a">
     <slot />
   </NuxtLink>
 </template>
 
 <script setup lang="ts">
-import type { PropType } from '#imports'
+import { computed, type PropType } from '#imports'
 
-const { href, external, target } = defineProps({
+const { href, external } = defineProps({
   href: {
     type: String,
     default: ''
@@ -25,14 +25,26 @@ const { href, external, target } = defineProps({
     required: false
   }
 })
+
+const refinedTarget = computed(() => {
+  if (href.startsWith('/') && !href.startsWith('//')) return '_self'
+  if (href.startsWith('#')) return '_self'
+  return '_blank'
+})
 </script>
 
 <style scoped>
 .prose-a {
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-skip-ink: auto;
-  text-decoration-thickness: 2px;
+  text-decoration: underline dotted;
   text-underline-offset: 4px;
+}
+
+.prose-a:hover {
+  text-decoration: underline;
+  color: var(--active-link);
+}
+
+.prose-a:has(code) {
+  text-decoration: none !important;
 }
 </style>

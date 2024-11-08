@@ -6,19 +6,12 @@
 
 <style scoped>
 .prose-ul {
-  margin-left: 1.5rem; /* 24px */
   list-style-type: disc;
+  margin: 0.5rem 0 0.5rem 1.5rem;
 }
 
-.prose-ul:not(:first-child) {
-  margin-top: 1.5rem; /* 24px */
-}
-
-.prose-ul:not(:last-child) {
-  margin-bottom: 1.5rem; /* 24px */
-}
-
-.prose-ul > li:not(:first-child) {
-  margin-top: 0.5rem; /* 8px */
+.prose-ul.contains-task-list {
+  list-style-type: none;
+  margin: 0.5rem 0;
 }
 </style>

@@ -1,345 +1,191 @@
-### Heading
+# Tailwind Typography Example
 
-::code-group
-::div{label="Preview" class="md:p-4"}
+Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.
 
-# Heading 1
+By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you _really are_ just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
 
-## Heading 2
+We get lots of complaints about it actually, with people regularly asking us things like:
 
-### Heading 3
+> Why is Tailwind removing the default styles on my `h1` elements? How do I disable this? What do you mean I lose all the other base styles too?
 
-#### Heading 4
+We hear you, but we're not convinced that simply disabling our base styles is what you really want. You don't want to have to remove annoying margins every time you use a `p` element in a piece of your dashboard UI. And I doubt you really want your blog posts to use the user-agent styles either — you want them to look _awesome_, not awful.
 
-##### Heading 5
+The `@tailwindcss/typography` plugin is our attempt to give you what you _actually_ want, without any of the downsides of doing something stupid like disabling our base styles.
 
-###### Heading 6
+It adds a new `prose` class that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document:
 
-::
-
-```md [Code]
-# Heading 1
-
-## Heading 2
-
-### Heading 3
-
-#### Heading 4
-
-##### Heading 5
-
-###### Heading 6
+```html
+<article class="prose">
+  <h1>Garlic bread with cheese: What the science tells us</h1>
+  <p>
+    For years parents have espoused the health benefits of eating garlic bread with cheese to their
+    children, with the food earning such an iconic status in our culture that kids will often dress
+    up as warm, cheesy loaf for Halloween.
+  </p>
+  <p>
+    But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases
+    springing up around the country.
+  </p>
+  <!-- ... -->
+</article>
 ```
 
-::
-
-### Link
-
-::code-group
-::div{label="Preview" class="md:p-4"}
-[Link](/getting-started/introduction)
-::
-
-```md [Code]
-[Link](/getting-started/introduction)
-```
-
-::
-
-### Blockquote
-
-::code-group
-::div{label="Preview" class="md:p-4"}
-
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-> ::
-
-```md [Code]
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-```
-
-::
-
-### Code Block
-
-::code-group
-::div{label="Preview" class="md:p-4"}
-
-```ts
-export default () => {
-  console.log('Code block')
-}
-```
-
-```ts [With Title]
-export default () => {
-  console.log('Code block')
-}
-```
-
-```ts{2} [Highlight Lines]
-export default () => {
-  console.log('Code block');
-};
-```
-
-::
-
-````md [Code]
-```ts
-export default () => {
-  console.log('Code block')
-}
-```
-
-```ts [With Title]
-export default () => {
-  console.log('Code block')
-}
-```
-
-```ts{2} [Highlight Lines]
-export default () => {
-  console.log('Code block');
-};
-```
-````
-
-::
-
-### Inline Code
-
-::code-group
-::div{label="Preview" class="md:p-4"}
-`code inline`
-
-`const codeInline: string = 'highlighted code inline'`{lang="ts"}
-::
-
-```md [Code]
-`code inline`
-
-`const codeInline: string = 'highlighted code inline'`{lang="ts"}
-```
-
-::
-
-### Horizontal Rule
-
-::code-group
-::div{label="Preview" class="md:p-4"}
-Before
+For more information about how to use the plugin and the features it includes, [read the documentation](https://github.com/tailwindcss/typography/blob/master/README.md).
 
 ---
 
-After
-::
+## What to expect from here on out
 
-```md [Code]
-Before
+What follows from here is just a bunch of absolute nonsense I've written to dogfood the plugin itself. It includes every sensible typographic element I could think of, like **bold text**, unordered lists, ordered lists, code blocks, block quotes, _and even italics_.
 
----
+It's important to cover all of these use cases for a few reasons:
 
-After
+1. We want everything to look good out of the box.
+2. Really just the first reason, that's the whole point of the plugin.
+3. Here's a third pretend reason though a list with three items looks more realistic than a list with two items.
+
+Now we're going to try out another header style.
+
+### Typography should be easy
+
+So that's a header for you — with any luck if we've done our job correctly that will look pretty reasonable.
+
+Something a wise person once told me about typography is:
+
+> Typography is pretty important if you don't want your stuff to look like trash. Make it good then it won't be bad.
+
+It's probably important that images look okay here by default as well:
+
+![Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.](https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80)
+
+
+Now I'm going to show you an example of an unordered list to make sure that looks good, too:
+
+- So here is the first item in this list.
+- In this example we're keeping the items short.
+- Later, we'll use longer, more complex list items.
+
+And that's the end of this section.
+
+## What if we stack headings?
+
+### We should make sure that looks good, too.
+
+Sometimes you have headings directly underneath each other. In those cases you often have to undo the top margin on the second heading because it usually looks better for the headings to be closer together than a paragraph followed by a heading should be.
+
+### When a heading comes after a paragraph …
+
+When a heading comes after a paragraph, we need a bit more space, like I already mentioned above. Now let's see what a more complex list would look like.
+
+- **I often do this thing where list items have headings.**
+
+  For some reason I think this looks cool which is unfortunate because it's pretty annoying to get the styles right.
+
+  I often have two or three paragraphs in these list items, too, so the hard part is getting the spacing between the paragraphs, list item heading, and separate list items to all make sense. Pretty tough honestly, you could make a strong argument that you just shouldn't write this way.
+
+- **Since this is a list, I need at least two items.**
+
+  I explained what I'm doing already in the previous list item, but a list wouldn't be a list if it only had one item, and we really want this to look realistic. That's why I've added this second list item so I actually have something to look at when writing the styles.
+
+- **It's not a bad idea to add a third item either.**
+
+  I think it probably would've been fine to just use two items but three is definitely not worse, and since I seem to be having no trouble making up arbitrary things to type, I might as well include it.
+
+After this sort of list I usually have a closing statement or paragraph, because it kinda looks weird jumping right to a heading.
+
+## Code should look okay by default.
+
+I think most people are going to use [highlight.js](https://highlightjs.org/) or [Prism](https://prismjs.com/) or something if they want to style their code blocks but it wouldn't hurt to make them look _okay_ out of the box, even with no syntax highlighting.
+
+Here's what a default `tailwind.config.js` file looks like at the time of writing:
+
+```js [tailwind.config.cjs]
+module.exports = {
+  purge: [],
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+}
 ```
 
-::
+Hopefully that looks good enough to you.
 
-### Image
+### What about nested lists?
 
-::code-group
-::div{label="Preview" class="md:p-4"}
-![Photo by Drew Beamer](https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80)
-::
+Nested lists basically always look bad which is why editors like Medium don't even let you do it, but I guess since some of you goofballs are going to do it we have to carry the burden of at least making it work.
 
-```md [Code]
-![Photo by Drew Beamer](https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80)
-```
+1. **Nested lists are rarely a good idea.**
+   - You might feel like you are being really "organized" or something but you are just creating a gross shape on the screen that is hard to read.
+   - Nested navigation in UIs is a bad idea too, keep things as flat as possible.
+   - Nesting tons of folders in your source code is also not helpful.
+2. **Since we need to have more items, here's another one.**
+   - I'm not sure if we'll bother styling more than two levels deep.
+   - Two is already too much, three is guaranteed to be a bad idea.
+   - If you nest four levels deep you belong in prison.
+3. **Two items isn't really a list, three is good though.**
+   - Again please don't nest lists if you want people to actually read your content.
+   - Nobody wants to look at this.
+   - I'm upset that we even have to bother styling this.
 
-::
+The most annoying thing about lists in Markdown is that `<li>` elements aren't given a child `<p>` tag unless there are multiple paragraphs in the list item. That means I have to worry about styling that annoying situation too.
 
-### Unordered List
+- **For example, here's another nested list.**
 
-::code-group
-::div{label="Preview" class="md:p-4"}
+  But this time with a second paragraph.
 
-- Foo
-- Bar
-- Baz
-  ::
+  - These list items won't have `<p>` tags
+  - Because they are only one line each
 
-```md [Code]
-- Foo
-- Bar
-- Baz
-```
+- **But in this second top-level list item, they will.**
 
-::
+  This is especially annoying because of the spacing on this paragraph.
 
-### Ordered List
+  - As you can see here, because I've added a second line, this list item now has a `<p>` tag.
 
-::code-group
-::div{label="Preview" class="md:p-4"}
+    This is the second line I'm talking about by the way.
 
-1. Foo
-2. Bar
-3. Baz
-   ::
+  - Finally here's another list item so it's more like a list.
 
-```md [Code]
-1. Foo
-2. Bar
-3. Baz
-```
+- A closing list item, but with no nested list, because why not?
 
-::
+And finally a sentence to close off this section.
 
-### Paragraph
+## There are other elements we need to style
 
-::code-group
-::div{label="Preview" class="md:p-4"}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-::
+I almost forgot to mention links, like [this link to the Tailwind CSS website](https://tailwindcss.com). We almost made them blue but that's so yesterday, so we went with dark gray, feels edgier.
 
-```md [Code]
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-```
+We even included table styles, check it out:
 
-::
+| Wrestler                | Origin       | Finisher           |
+| ----------------------- | ------------ | ------------------ |
+| Bret "The Hitman" Hart  | Calgary, AB  | Sharpshooter       |
+| Stone Cold Steve Austin | Austin, TX   | Stone Cold Stunner |
+| Randy Savage            | Sarasota, FL | Elbow Drop         |
+| Vader                   | Boulder, CO  | Vader Bomb         |
+| Razor Ramon             | Chuluota, FL | Razor's Edge       |
 
-### Strong
+We also need to make sure inline code looks good, like if I wanted to talk about `<span>` elements or tell you the good news about `@tailwindcss/typography`.
 
-::code-group
-::div{label="Preview" class="md:p-4"}
-**Just a strong paragraph.**
-::
+### Sometimes I even use `code` in headings
 
-```md [Code]
-**Just a strong paragraph.**
-```
+Even though it's probably a bad idea, and historically I've had a hard time making it look good. This _"wrap the code blocks in backticks"_ trick works pretty well though really.
 
-::
+Another thing I've done in the past is put a `code` tag inside of a link, like if I wanted to tell you about the [`tailwindcss/docs`](https://github.com/tailwindcss/docs) repository. I don't love that there is an underline below the backticks but it is absolutely not worth the madness it would require to avoid it.
 
-### Italic
+#### We haven't used an `h4` yet
 
-::code-group
-::div{label="Preview" class="md:p-4"}
-_Just an italic paragraph._
-::
+But now we have. Please don't use `h5` or `h6` in your content, Medium only supports two heading levels for a reason, you animals. I honestly considered using a `before` pseudo-element to scream at you if you use an `h5` or `h6`.
 
-```md [Code]
-_Just an italic paragraph._
-```
+We don't style them at all out of the box because `h4` elements are already so small that they are the same size as the body copy. What are we supposed to do with an `h5`, make it _smaller_ than the body copy? No thanks.
 
-::
+### We still need to think about stacked headings though.
 
-### Table
+#### Let's make sure we don't screw that up with `h4` elements, either.
 
-::code-group
-::div{label="Preview" class="md:p-4"}
-| Key | Type | Description |
-| --- | --------- | ------------------------------------------- |
-| 1 | Wonderful | Table with `some long code snippet example` |
-| 2 | Wonderful | Data |
-| 3 | Wonderful | Website |
-::
+Phew, with any luck we have styled the headings above this text and they look pretty good.
 
-```md [Code]
-| Key | Type      | Description                                 |
-| --- | --------- | ------------------------------------------- |
-| 1   | Wonderful | Table with `some long code snippet example` |
-| 2   | Wonderful | Data                                        |
-| 3   | Wonderful | Website                                     |
-```
+Let's add a closing paragraph here so things end with a decently sized block of text. I can't explain why I want things to end that way but I have to assume it's because I think things will look weird or unbalanced if there is a heading too close to the end of the document.
 
-::
-
-### Overview
-
-::code-group
-::div{label="Preview" class="p-4"}
-
-# The Joke Tax Chronicles
-
-Once upon a time, in a far-off land, there was a very lazy king who spent all day lounging on his throne. One day, his advisors came to him with a problem: the kingdom was running out of money.
-
-## The King's Plan
-
-The king thought long and hard, and finally came up with [a brilliant plan](#): he would tax the jokes in the kingdom.
-
-> "After all," he said, "everyone enjoys a good joke, so it's only fair that they should pay for the privilege."
-
-### The Joke Tax
-
-The king's subjects were not amused. They grumbled and complained, but the king was firm:
-
-- 1st level of puns: 5 gold coins
-- 2nd level of jokes: 10 gold coins
-- 3rd level of one-liners : 20 gold coins
-
-As a result, people stopped telling jokes, and the kingdom fell into a gloom. But there was one person who refused to let the king's foolishness get him down: a court jester named Jokester.
-
-### Jokester's Revolt
-
-Jokester began sneaking into the castle in the middle of the night and leaving jokes all over the place: under the king's pillow, in his soup, even in the royal toilet. The king was furious, but he couldn't seem to stop Jokester.
-
-And then, one day, the people of the kingdom discovered that the jokes left by Jokester were so funny that they couldn't help but laugh. And once they started laughing, they couldn't stop.
-
-### The People's Rebellion
-
-The people of the kingdom, feeling uplifted by the laughter, started to tell jokes and puns again, and soon the entire kingdom was in on the joke.
-
-| King's Treasury | People's happiness |
-| :-------------- | :----------------- |
-| Empty           | Overflowing        |
-| Modest          | Satisfied          |
-| Full            | Ecstatic           |
-
-The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax. Jokester was declared a hero, and the kingdom lived happily ever after.
-
-The moral of the story is: never underestimate the power of a good laugh and always be careful of bad ideas.
-::
-
-```md [Code]
-# The Joke Tax Chronicles
-
-Once upon a time, in a far-off land, there was a very lazy king who spent all day lounging on his throne. One day, his advisors came to him with a problem: the kingdom was running out of money.
-
-## The King's Plan
-
-The king thought long and hard, and finally came up with [a brilliant plan](#): he would tax the jokes in the kingdom.
-
-> "After all," he said, "everyone enjoys a good joke, so it's only fair that they should pay for the privilege."
-
-### The Joke Tax
-
-The king's subjects were not amused. They grumbled and complained, but the king was firm:
-
-- 1st level of puns: 5 gold coins
-- 2nd level of jokes: 10 gold coins
-- 3rd level of one-liners : 20 gold coins
-
-As a result, people stopped telling jokes, and the kingdom fell into a gloom. But there was one person who refused to let the king's foolishness get him down: a court jester named Jokester.
-
-### Jokester's Revolt
-
-Jokester began sneaking into the castle in the middle of the night and leaving jokes all over the place: under the king's pillow, in his soup, even in the royal toilet. The king was furious, but he couldn't seem to stop Jokester.
-
-And then, one day, the people of the kingdom discovered that the jokes left by Jokester were so funny that they couldn't help but laugh. And once they started laughing, they couldn't stop.
-
-### The People's Rebellion
-
-The people of the kingdom, feeling uplifted by the laughter, started to tell jokes and puns again, and soon the entire kingdom was in on the joke.
-
-| King's Treasury | People's happiness |
-| :-------------- | :----------------- |
-| Empty           | Overflowing        |
-| Modest          | Satisfied          |
-| Full            | Ecstatic           |
-
-The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax. Jokester was declared a hero, and the kingdom lived happily ever after.
-
-The moral of the story is: never underestimate the power of a good laugh and always be careful of bad ideas.
-```
-
-::
+What I've written here is probably long enough, but adding this final sentence can't hurt.

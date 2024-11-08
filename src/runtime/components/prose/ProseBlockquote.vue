@@ -8,10 +8,7 @@
 .prose-blockquote {
   border-left: 3px solid var(--border);
   font-style: italic;
-  padding-left: 1.5rem;
-}
-
-.prose-blockquote:not(:first-child) {
-  margin-top: 1.5rem;
+  padding-left: 1.25rem;
+  margin: 1rem 0;
 }
 </style>

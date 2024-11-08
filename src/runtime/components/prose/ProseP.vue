@@ -6,10 +6,7 @@
 
 <style scoped>
 .prose-p {
-  line-height: 1.75rem; /* 28px */
-}
-
-.prose-p:not(:first-child) {
-  margin-top: 1.5rem; /* 24px */
+  line-height: 1.5;
+  margin: 1rem 0;
 }
 </style>

@@ -26,6 +26,8 @@ const generate = computed(
   line-height: 2.5rem; /* 40px */
   font-weight: 800;
   letter-spacing: -0.025em;
+  text-decoration: none;
+  margin: 1rem 0;
 }
 
 @media (min-width: 1024px) {

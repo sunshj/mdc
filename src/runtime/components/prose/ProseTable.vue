@@ -10,14 +10,7 @@
 .table-wrapper {
   width: 100%;
   overflow-y: auto;
-}
-
-.table-wrapper:not(:first-child) {
-  margin-top: 1.5rem;
-}
-
-.table-wrapper:not(:last-child) {
-  margin-bottom: 1.5rem;
+  margin: 1rem 0;
 }
 
 .prose-table {

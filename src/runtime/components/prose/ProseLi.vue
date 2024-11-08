@@ -3,11 +3,7 @@
 </template>
 
 <style scoped>
-.prose-li > ol {
-  margin-top: 0.5rem !important; /* 8px */
-}
-
-.prose-li > ul {
-  margin-top: 0.5rem !important; /* 8px */
+.prose-li {
+  margin: 0.75rem 0;
 }
 </style>

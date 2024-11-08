@@ -22,7 +22,8 @@ export default defineNuxtModule<ModuleOptions>({
           default: 'github-light-default',
           dark: 'github-dark-default'
         }
-      }
+      },
+      keepComments: true
     })
 
     // css

@@ -3,7 +3,8 @@
 </template>
 
 <style scoped>
-.prose-hr:not(:first-child) {
-  margin-top: 1.5rem; /* 24px */
+.prose-hr {
+  border-top: 1px solid var(--border); /* 2px */
+  margin: 1rem 0;
 }
 </style>

@@ -22,16 +22,12 @@ const generate = computed(
 <style scoped>
 .prose-h2 {
   scroll-margin: 5rem; /* 80px */
-  border-bottom-width: 1px;
-  padding-bottom: 0.5rem; /* 8px */
   font-size: 1.875rem; /* 30px */
   line-height: 2.25rem; /* 36px */
   font-weight: 600;
   letter-spacing: -0.025em;
+  text-decoration: none;
   transition: color 0.2s ease-in-out;
-}
-
-.prose-h2:not(:first-child) {
-  margin-top: 2.5rem; /* 40px */
+  margin: 0.75rem 0; /* 16px */
 }
 </style>

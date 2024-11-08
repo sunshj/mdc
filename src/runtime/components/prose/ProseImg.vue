@@ -1,5 +1,8 @@
 <template>
-  <NuxtImg :src="refinedSrc" :alt :width :height class="prose-img" />
+  <div class="img-wrapper">
+    <NuxtImg :src="refinedSrc" :alt :width :height class="prose-img" />
+    <div v-if="alt" class="img-title">{{ alt }}</div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -35,16 +38,23 @@ const refinedSrc = computed(() => {
 </script>
 
 <style scoped>
+.img-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* 8px */
+  margin: 1rem 0;
+}
+
 .prose-img {
   width: 100%;
-  border-radius: 0.375rem; /* 6px */
+  border-radius: 6px;
 }
 
-.prose-img:not(:first-child) {
-  margin-top: 2rem; /* 32px */
-}
-
-.prose-img:not(:last-child) {
-  margin-bottom: 2rem; /* 32px */
+.img-title {
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 </style>

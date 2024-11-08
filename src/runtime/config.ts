@@ -42,3 +42,5 @@ export const fileIconMap = {
   sh: 'vscode-icons:file-type-shell',
   bash: 'vscode-icons:file-type-shell'
 }
+
+export const iconMap = new Map(Object.entries(fileIconMap))
