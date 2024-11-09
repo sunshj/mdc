@@ -1,7 +1,7 @@
 ### Heading
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 
 # Heading 1
 
@@ -36,14 +36,20 @@
 ### Link
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
-  [Internal Link](/play)<br/>
-  [External Link](https://github.com/sunshj/mdc)
+::div{label="Preview" style="padding:5px 10px"}
+  [Internal Link](/play) :br
+
+  [External Link](https://github.com/sunshj/mdc) :br 
+  
+  [`InlineCode Link`](https://github.com/sunshj/mdc)
 ::
 
 ```md [Code]
 [Internal Link](/play)
+
 [External Link](https://github.com/sunshj/mdc)
+
+[`InlineCode Link`](https://github.com/sunshj/mdc)
 ```
 
 ::
@@ -51,7 +57,7 @@
 ### Blockquote
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
@@ -66,7 +72,7 @@
 ### Code Block
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 
 ```ts
 export default () => {
@@ -127,7 +133,7 @@ export default () => {
 ### Code Group
 
 ::code-group
-  ::div{label="Preview" style="padding:10px"}
+  ::div{label="Preview" style="padding:5px 10px"}
     ::code-group
       ```bash [npm]
       npm run dev
@@ -171,7 +177,7 @@ export default () => {
 ### Inline Code
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 `code inline`
 
 `const codeInline: string = 'highlighted code inline'`{lang="ts"}
@@ -185,10 +191,10 @@ export default () => {
 
 ::
 
-### Horizontal Rule
+### Horizontal Rule 
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 Before
 
 ---
@@ -209,12 +215,12 @@ After
 ### Image
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
-![Photo by Drew Beamer](https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80)
+::div{label="Preview" style="padding:5px 10px"}
+![Photo by Drew Beamer](https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80 "Get image from unsplash.com")
 ::
 
 ```md [Code]
-![Photo by Drew Beamer](https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80)
+![Photo by Drew Beamer](https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80 "Get image from unsplash.com")
 ```
 
 ::
@@ -222,7 +228,7 @@ After
 ### Unordered List
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 
 - Foo
 - Bar
@@ -241,7 +247,7 @@ After
 ### Ordered List
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 
 1. Foo
 2. Bar
@@ -260,7 +266,7 @@ After
 ### Paragraph
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 ::
 
@@ -273,7 +279,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ### Strong
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 **Just a strong paragraph.**
 ::
 
@@ -286,12 +292,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ### Italic
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
-_Just an italic paragraph._
+::div{label="Preview" style="padding:5px 10px"}
+*Just an italic paragraph.*
 ::
 
 ```md [Code]
-_Just an italic paragraph._
+*Just an italic paragraph.*
 ```
 
 ::
@@ -299,7 +305,7 @@ _Just an italic paragraph._
 ### Table
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 | Key | Type | Description |
 | --- | --------- | ------------------------------------------- |
 | 1 | Wonderful | Table with `some long code snippet example` |
@@ -321,7 +327,7 @@ _Just an italic paragraph._
 ### Strikethrough
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 ~~Just a strikethrough paragraph.~~
 ::
 
@@ -335,7 +341,7 @@ _Just an italic paragraph._
 ### Task List
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 - [x] Foo
 - [ ] Bar
 - [ ] Baz
@@ -354,7 +360,7 @@ _Just an italic paragraph._
 ### Emoji
 
 ::code-group
-::div{label="Preview" style="padding:10px"}
+::div{label="Preview" style="padding:5px 10px"}
 :smile:
 :heart:
 :rocket:
@@ -372,7 +378,7 @@ _Just an italic paragraph._
  ### Shortcut
 
 ::code-group
-  ::div{label="Preview" style="padding:10px"}
+  ::div{label="Preview" style="padding:5px 10px"}
     :shortcut{value="meta"} :shortcut{value="K"} :br
     :shortcut{value="xs" size="xs"} :shortcut{value="sm"} :shortcut{value="md" size="md"}
   ::
@@ -386,7 +392,7 @@ _Just an italic paragraph._
 ### Smart Icon
 
 ::code-group
-  ::div{label="Preview" style="padding:10px"}
+  ::div{label="Preview" style="padding:5px 10px"}
     :smart-icon{name="lucide:sun"}
     :smart-icon{name="lucide:moon" size="24"}
     :smart-icon{name="https://me.sunshj.top/images/favicon.png" size="32"}

@@ -1,7 +1,7 @@
 <template>
   <div class="img-wrapper">
-    <NuxtImg :src="refinedSrc" :alt :width :height class="prose-img" />
-    <div v-if="alt" class="img-title">{{ alt }}</div>
+    <NuxtImg :src="refinedSrc" :alt :width :height :title class="prose-img" />
+    <div v-if="alt" class="img-title">{{ title || alt }}</div>
   </div>
 </template>
 
@@ -9,12 +9,16 @@
 import { joinURL, withLeadingSlash, withTrailingSlash } from 'ufo'
 import { computed, useRuntimeConfig } from '#imports'
 
-const { alt, src, height, width } = defineProps({
+const { alt, src, title, height, width } = defineProps({
   src: {
     type: String,
     default: ''
   },
   alt: {
+    type: String,
+    default: ''
+  },
+  title: {
     type: String,
     default: ''
   },

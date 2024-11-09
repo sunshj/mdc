@@ -5,19 +5,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type PropType } from '#imports'
+import { computed } from '#imports'
 
 const { href, external } = defineProps({
   href: {
     type: String,
     default: ''
-  },
-  target: {
-    type: String as PropType<
-      '_blank' | '_parent' | '_self' | '_top' | (string & object) | null | undefined
-    >,
-    default: undefined,
-    required: false
   },
   external: {
     type: Boolean,
