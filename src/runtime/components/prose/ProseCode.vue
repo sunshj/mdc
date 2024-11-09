@@ -6,6 +6,7 @@
 
 <style scoped>
 .prose-inline-code {
+  border: 1px solid var(--border);
   position: relative;
   border-radius: 4px;
   background-color: var(--muted);

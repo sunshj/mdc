@@ -70,6 +70,7 @@ function label(props: any) {
 .code-group-tabs {
   display: flex;
   flex-direction: row;
+  gap: 4px;
   background-color: var(--background);
   border-bottom: 1px solid var(--border);
   padding: 5px 12px 5px 5px;
@@ -77,7 +78,7 @@ function label(props: any) {
 }
 
 .code-group-tab {
-  padding: 0.25rem 0.75rem;
+  padding: 5px 10px;
   cursor: pointer;
   display: flex;
   align-items: center;

@@ -1,21 +1,19 @@
 <template>
-  <div class="card" :class="{ 'no-header': !showHeader }">
+  <div :class="{ card: true, 'no-header': !showHeader }">
     <div v-if="showHeader && filename" class="card-header">
       <SmartIcon v-if="icon" :name="icon" class="icon" />
       {{ filename }}
       <CodeCopy :code class="copy-btn" />
     </div>
 
-    <span v-if="!filename" class="absolute-copy-btn">
-      <CodeCopy :code />
-    </span>
+    <span v-if="!filename" class="absolute-copy-btn"><CodeCopy :code /></span>
 
     <span v-if="!filename && !isSingleLine" class="absolute-language">{{ language }}</span>
 
     <div class="card-body">
       <div
-        class="code-wrapper"
         :class="{
+          'code-wrapper': true,
           'inline-copy': showHeader && !filename,
           'no-language': !language
         }"
@@ -134,7 +132,6 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
   overflow-x: auto;
   font-size: 14px;
   line-height: 1.25rem; /* 20px */
-  padding: 0.75rem 0; /* 12px */
 }
 
 .inline-copy :deep(.line) {
@@ -147,27 +144,29 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 </style>
 
 <style>
-.shiki .line {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.shiki .line.highlight {
-  background-color: var(--muted-80);
-}
-
 .prose-pre {
   margin: 0;
   white-space: normal;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px 0;
 }
 
 .prose-pre code {
   white-space: pre;
+  display: block;
 }
 
 .prose-pre code .line {
   display: block;
-  min-height: 1rem;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.prose-pre code .line.highlight {
+  background-color: var(--muted-80);
 }
 
 /* line diff */
