@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.2...v0.1.3)
+
+### 🏡 Chore
+
+- **release:** V0.1.2 ([2a0ee43](https://github.com/sunshj/mdc/commit/2a0ee43))
+
+### 🎨 Styles
+
+- Update CodeGroup and Prose components styling ([2c65743](https://github.com/sunshj/mdc/commit/2c65743))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.2
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.1...v0.1.2)
