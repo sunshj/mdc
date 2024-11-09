@@ -1,6 +1,31 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.1...v0.1.2)
+
+### 🚀 Enhancements
+
+- **prose:** Add language display and single line check in ProsePre ([f9ee04e](https://github.com/sunshj/mdc/commit/f9ee04e))
+
+### 🩹 Fixes
+
+- **CodeGroup.vue:** Make tabs scrollable ([fa8d697](https://github.com/sunshj/mdc/commit/fa8d697))
+
+### 💅 Refactors
+
+- **package.json:** Modify dev script to include dev:prepare ([9bbbc78](https://github.com/sunshj/mdc/commit/9bbbc78))
+
+### 🏡 Chore
+
+- **release:** V0.1.1 ([ac62828](https://github.com/sunshj/mdc/commit/ac62828))
+- Improve style ([c7d42d9](https://github.com/sunshj/mdc/commit/c7d42d9))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.1
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.0...v0.1.1)
