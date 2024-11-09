@@ -10,6 +10,8 @@
       <CodeCopy :code />
     </span>
 
+    <span v-if="!filename && !isSingleLine" class="absolute-language">{{ language }}</span>
+
     <div class="card-body">
       <div
         class="code-wrapper"
@@ -27,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import type { PropType } from '#imports'
+import { computed, type PropType } from '#imports'
 import { iconMap } from '../../config'
 import type { BuiltinLanguage } from 'shiki'
 
@@ -68,6 +70,8 @@ const props = defineProps({
 })
 
 const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language)
+
+const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 </script>
 
 <style scoped>
@@ -110,6 +114,16 @@ const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.lan
   z-index: 10;
   top: 0.75rem; /* 12px */
   right: 0.75rem; /* 12px */
+}
+
+.absolute-language {
+  position: absolute;
+  z-index: 5;
+  text-transform: uppercase;
+  bottom: 0.5rem; /* 12px */
+  right: 0.5rem; /* 12px */
+  font-weight: 700;
+  color: #ccca;
 }
 
 .card-body {
