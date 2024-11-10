@@ -57,7 +57,7 @@ const refinedSrc = computed(() => {
 
 .img-title {
   text-align: center;
-  color: var(--muted-foreground);
+  color: var(--mdc-muted-foreground);
   font-size: 0.75rem;
   font-weight: 500;
 }

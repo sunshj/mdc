@@ -1,47 +1,48 @@
 :root {
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(240 10% 3.9%);
+  --mdc-background: hsl(0 0% 100%);
+  --mdc-foreground: hsl(240 10% 3.9%);
 
-  --muted: hsl(240 4.8% 95.9%);
-  --muted-foreground: hsl(240 3.8% 46.1%);
-  --muted-30: hsl(240 4.8% 95.9% / 0.3);
-  --muted-50: hsl(240 4.8% 95.9% / 0.5);
-  --muted-80: hsl(240 4.8% 95.9% / 0.8);
+  --mdc-muted: hsl(240 4.8% 95.9%);
+  --mdc-muted-foreground: hsl(240 3.8% 46.1%);
+  --mdc-muted-30: hsl(240 4.8% 95.9% / 0.3);
+  --mdc-muted-50: hsl(240 4.8% 95.9% / 0.5);
+  --mdc-muted-80: hsl(240 4.8% 95.9% / 0.8);
 
-  --border: hsl(240 5.9% 90%);
-  --input: hsl(240 5.9% 90%);
+  --mdc-border: hsl(240 5.9% 90%);
+  --mdc-input: hsl(240 5.9% 90%);
 
-  --primary: hsl(240 5.9% 10%);
-  --primary-foreground: hsl(0 0% 98%);
+  --mdc-primary: hsl(240 5.9% 10%);
+  --mdc-primary-foreground: hsl(0 0% 98%);
 
-  --secondary: hsl(240 4.8% 95.9%);
-  --secondary-foreground: hsl(240 5.9% 10%);
+  --mdc-secondary: hsl(240 4.8% 95.9%);
+  --mdc-secondary-foreground: hsl(240 5.9% 10%);
 
-  --destructive: hsl(0 84.2% 60.2%);
-  --destructive-foreground: hsl(0 0% 98%);
+  --mdc-destructive: hsl(0 84.2% 60.2%);
+  --mdc-destructive-foreground: hsl(0 0% 98%);
 
-  --active-link: hsl(221, 100%, 55%);
+  --mdc-active-link: hsl(221, 100%, 55%);
+  --mdc-code-family: Consolas, monospace;
 }
 
 .dark {
-  --background: hsl(240 10% 3.9%);
-  --foreground: hsl(0 0% 90%);
+  --mdc-background: hsl(240 10% 3.9%);
+  --mdc-foreground: hsl(0 0% 90%);
 
-  --muted: hsl(240 3.7% 15.9%);
-  --muted-foreground: hsl(240 5% 64.9%);
-  --muted-30: hsl(240 3.7% 15.9% / 0.3);
-  --muted-50: hsl(240 3.7% 15.9% / 0.5);
-  --muted-80: hsl(240 3.7% 15.9% / 0.8);
+  --mdc-muted: hsl(240 3.7% 15.9%);
+  --mdc-muted-foreground: hsl(240 5% 64.9%);
+  --mdc-muted-30: hsl(240 3.7% 15.9% / 0.3);
+  --mdc-muted-50: hsl(240 3.7% 15.9% / 0.5);
+  --mdc-muted-80: hsl(240 3.7% 15.9% / 0.8);
 
-  --border: hsl(240 3.7% 15.9%);
-  --input: hsl(240 3.7% 15.9%);
+  --mdc-border: hsl(240 3.7% 15.9%);
+  --mdc-input: hsl(240 3.7% 15.9%);
 
-  --primary: hsl(0 0% 98%);
-  --primary-foreground: hsl(240 5.9% 10%);
+  --mdc-primary: hsl(0 0% 98%);
+  --mdc-primary-foreground: hsl(240 5.9% 10%);
 
-  --secondary: hsl(240 3.7% 15.9%);
-  --secondary-foreground: hsl(0 0% 98%);
+  --mdc-secondary: hsl(240 3.7% 15.9%);
+  --mdc-secondary-foreground: hsl(0 0% 98%);
 
-  --destructive: hsl(0 62.8% 30.6%);
-  --destructive-foreground: hsl(0 0% 98%);
+  --mdc-destructive: hsl(0 62.8% 30.6%);
+  --mdc-destructive-foreground: hsl(0 0% 98%);
 }

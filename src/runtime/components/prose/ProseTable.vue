@@ -28,6 +28,6 @@
 *,
 *::before,
 *::after {
-  border: 0px solid var(--border);
+  border: 0px solid var(--mdc-border);
 }
 </style>

@@ -8,7 +8,8 @@
       @keydown.ctrl.enter="send"
     />
 
-    <button @click="send">send</button>
+    <button class="send" @click="send">send</button>
+    <button class="clear" @click="clear">clear</button>
 
     <div class="output">
       <MDC v-for="{ id, value } in output" :key="id" :value="value" />
@@ -17,8 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-const input = ref(`
-::code-group
+const input = ref(`::code-group
   \`\`\`bash [npm]
   npm run dev
   \`\`\`
@@ -36,6 +36,10 @@ const input = ref(`
   \`\`\`
 ::
 
+\`\`\`yaml [.prettierignore]
+content
+README.md
+\`\`\`
 `)
 
 const output = ref<Array<{ id: number; value: string }>>([])
@@ -46,6 +50,9 @@ function send() {
     id: Date.now(),
     value: input.value
   })
+}
+
+function clear() {
   input.value = ''
 }
 </script>
@@ -53,10 +60,10 @@ function send() {
 <style scoped>
 textarea {
   width: 100%;
-  border: 1px solid var(--border);
+  border: 1px solid var(--mdc-border);
   padding: 10px;
-  color: var(--foreground);
-  background-color: var(--background);
+  color: var(--mdc-foreground);
+  background-color: var(--mdc-background);
   font-size: 16px;
 }
 
@@ -67,6 +74,15 @@ button {
   color: #fff;
   border: none;
   cursor: pointer;
+  border-radius: 6px;
+}
+
+.send {
+  margin-right: 10px;
+}
+
+.clear {
+  background-color: #dc3545;
 }
 
 .output {

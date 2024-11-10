@@ -24,8 +24,8 @@ const computedValue = computed(() => (value === 'meta' ? metaSymbol : value))
 
 <style scoped>
 .shortcut {
-  background-color: var(--muted);
-  border: 1px solid var(--border);
+  background-color: var(--mdc-muted);
+  border: 1px solid var(--mdc-border);
   pointer-events: none;
   height: 20px;
   display: inline-flex;

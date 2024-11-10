@@ -33,13 +33,15 @@
 
 <script setup lang="ts">
 import { computed, ref, useSlots } from '#imports'
-import { iconMap } from '../config'
+import { useFileIcons } from '../composables/file-icons'
 
 const defaultSlots = computed(() => useSlots()?.default?.() || [])
 
 const activeTabIndex = ref(0)
 
 const code = computed(() => defaultSlots.value[activeTabIndex.value]?.props?.code)
+
+const iconMap = useFileIcons()
 
 function icon(props: any) {
   return props?.icon || iconMap.get(props?.filename?.toLowerCase()) || iconMap.get(props?.language)
@@ -55,8 +57,8 @@ function label(props: any) {
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem; /* 8px */
-  border: 1px solid var(--border);
-  background-color: var(--background);
+  border: 1px solid var(--mdc-border);
+  background-color: var(--mdc-background);
   margin: 1rem 0;
   font-size: 14px;
 }
@@ -71,8 +73,8 @@ function label(props: any) {
   display: flex;
   flex-direction: row;
   gap: 4px;
-  background-color: var(--background);
-  border-bottom: 1px solid var(--border);
+  background-color: var(--mdc-background);
+  border-bottom: 1px solid var(--mdc-border);
   padding: 5px 12px 5px 5px;
   overflow-x: auto;
 }
@@ -87,7 +89,7 @@ function label(props: any) {
 }
 
 .code-group-tab.active {
-  background-color: var(--secondary);
+  background-color: var(--mdc-secondary);
   border-radius: 6px;
 }
 

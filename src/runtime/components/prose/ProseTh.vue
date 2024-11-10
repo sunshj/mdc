@@ -6,7 +6,7 @@
 
 <style scoped>
 .prose-th {
-  border: 1px solid var(--border);
+  border: 1px solid var(--mdc-border);
   text-align: left;
   font-weight: 700;
   padding: 0.5rem 1rem; /* 8px 16px */

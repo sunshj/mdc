@@ -4,5 +4,12 @@ export default defineNuxtConfig({
   modules: ['@sunshj/mdc', '@nuxtjs/color-mode'],
   colorMode: {
     classSuffix: ''
+  },
+
+  mdcp: {
+    fileIconMap: {
+      '.prettierrc': 'vscode-icons:file-type-light-prettier',
+      '.prettierignore': 'vscode-icons:file-type-light-prettier'
+    }
   }
 })

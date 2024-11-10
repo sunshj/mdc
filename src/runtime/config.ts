@@ -1,8 +1,10 @@
-export const fileIconMap = {
+export const defaultFileIconMap = {
   'package.json': 'vscode-icons:file-type-node',
   'tsconfig.json': 'vscode-icons:file-type-tsconfig',
   '.npmrc': 'vscode-icons:file-type-npm',
   '.editorconfig': 'vscode-icons:file-type-editorconfig',
+  '.prettierrc': 'vscode-icons:file-type-light-prettier',
+  '.prettierignore': 'vscode-icons:file-type-light-prettier',
   '.eslintrc': 'vscode-icons:file-type-eslint',
   '.eslintrc.cjs': 'vscode-icons:file-type-eslint',
   '.eslintignore': 'vscode-icons:file-type-eslint',
@@ -14,7 +16,6 @@ export const fileIconMap = {
   '.env': 'vscode-icons:file-type-dotenv',
   '.env.example': 'vscode-icons:file-type-dotenv',
   '.vscode/settings.json': 'vscode-icons:file-type-vscode',
-  nuxt: 'vscode-icons:file-type-nuxt',
   '.nuxtrc': 'vscode-icons:file-type-nuxt',
   '.nuxtignore': 'vscode-icons:file-type-nuxt',
   'nuxt.config.js': 'vscode-icons:file-type-nuxt',
@@ -23,6 +24,8 @@ export const fileIconMap = {
   'tailwind.config.js': 'vscode-icons:file-type-tailwind',
   'tailwind.config.ts': 'vscode-icons:file-type-tailwind',
   vue: 'vscode-icons:file-type-vue',
+  html: 'vscode-icons:file-type-html',
+  css: 'vscode-icons:file-type-css',
   ts: 'vscode-icons:file-type-typescript',
   tsx: 'vscode-icons:file-type-typescript',
   typescript: 'vscode-icons:file-type-typescript',
@@ -42,5 +45,3 @@ export const fileIconMap = {
   sh: 'vscode-icons:file-type-shell',
   bash: 'vscode-icons:file-type-shell'
 }
-
-export const iconMap = new Map(Object.entries(fileIconMap))

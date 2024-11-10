@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { computed, type PropType } from '#imports'
-import { iconMap } from '../../config'
+import { useFileIcons } from '../../composables/file-icons'
 import type { BuiltinLanguage } from 'shiki'
 
 const props = defineProps({
@@ -67,6 +67,7 @@ const props = defineProps({
   }
 })
 
+const iconMap = useFileIcons()
 const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language)
 
 const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
@@ -77,8 +78,8 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem; /* 8px */
-  border: 1px solid var(--border);
-  background-color: var(--background);
+  border: 1px solid var(--mdc-border);
+  background-color: var(--mdc-background);
   margin: 1rem 0;
 }
 
@@ -92,7 +93,7 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 .card-header {
   display: flex;
   padding: 0.75rem; /* 12px */
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--mdc-border);
   font-size: 14px;
   line-height: 1.25rem; /* 20px */
 }
@@ -125,7 +126,7 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 }
 
 .card-body {
-  background-color: var(--muted-30);
+  background-color: var(--mdc-muted-30);
 }
 
 .code-wrapper {
@@ -157,6 +158,7 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 .prose-pre code {
   white-space: pre;
   display: block;
+  font-family: var(--mdc-code-family);
 }
 
 .prose-pre code .line {
@@ -166,7 +168,7 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 }
 
 .prose-pre code .line.highlight {
-  background-color: var(--muted-80);
+  background-color: var(--mdc-muted-80);
 }
 
 /* line diff */

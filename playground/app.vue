@@ -57,12 +57,13 @@ bus.on(data => {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  line-height: 1.75;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  border-color: var(--border);
+  background-color: var(--mdc-background);
+  color: var(--mdc-foreground);
+  border-color: var(--mdc-border);
 }
 
 .container {

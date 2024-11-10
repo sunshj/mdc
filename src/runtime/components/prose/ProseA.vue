@@ -34,7 +34,7 @@ const refinedTarget = computed(() => {
 
 .prose-a:hover {
   text-decoration: underline;
-  color: var(--active-link);
+  color: var(--mdc-active-link);
 }
 
 .prose-a:has(code) {

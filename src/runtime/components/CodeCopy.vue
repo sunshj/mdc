@@ -40,10 +40,10 @@ whenever(copied, () => {
   display: block;
   align-self: center;
   cursor: pointer;
-  color: var(--muted-foreground);
+  color: var(--mdc-muted-foreground);
 }
 
 .copy:hover {
-  color: var(--primary);
+  color: var(--mdc-primary);
 }
 </style>
