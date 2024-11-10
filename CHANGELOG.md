@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.5
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.4...v0.1.5)
+
+### 🏡 Chore
+
+- **release:** V0.1.4 ([bd66178](https://github.com/sunshj/mdc/commit/bd66178))
+
+### 🎨 Styles
+
+- Remove redundant styles and add box-shadow to Shortcut.vue ([4e71dbf](https://github.com/sunshj/mdc/commit/4e71dbf))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.4
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.3...v0.1.4)
