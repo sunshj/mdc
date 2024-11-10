@@ -22,6 +22,7 @@
 
   --mdc-active-link: hsl(221, 100%, 55%);
   --mdc-code-family: Consolas, monospace;
+  --mdc-inline-code: hsl(226, 55%, 45%);
 }
 
 .dark {
@@ -45,4 +46,6 @@
 
   --mdc-destructive: hsl(0 62.8% 30.6%);
   --mdc-destructive-foreground: hsl(0 0% 98%);
+
+  --mdc-inline-code: hsl(234, 100%, 83%);
 }

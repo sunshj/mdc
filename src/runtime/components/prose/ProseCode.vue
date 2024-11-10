@@ -6,11 +6,12 @@
 
 <style scoped>
 .prose-inline-code {
+  color: var(--mdc-inline-code);
   border: 1px solid var(--mdc-border);
   position: relative;
   border-radius: 4px;
   background-color: var(--mdc-muted);
-  padding: 0.2rem 0.3rem;
+  padding: 3px 5px;
   font-family: var(--mdc-code-family);
 }
 

@@ -34,6 +34,10 @@ const computedValue = computed(() => (value === 'meta' ? metaSymbol : value))
   gap: 4px;
   border-radius: 4px;
   font-weight: 500;
+  box-shadow:
+    0 0 #0000,
+    0 0 #0000,
+    0px 1.5px 0px #0000001a;
 }
 
 .shortcut.xs {

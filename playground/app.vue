@@ -57,7 +57,6 @@ bus.on(data => {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  line-height: 1.75;
 }
 
 body {
@@ -71,15 +70,6 @@ body {
   margin: 0 auto;
   padding: 10px;
   max-width: 768px;
-}
-
-a {
-  text-decoration: inherit;
-  color: inherit;
-}
-
-a:hover {
-  text-decoration: underline;
 }
 </style>
 
