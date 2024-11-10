@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.6
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.5...v0.1.6)
+
+### 🩹 Fixes
+
+- **prose:** Change div to span in ProseImg component ([a489e1c](https://github.com/sunshj/mdc/commit/a489e1c))
+
+### 🏡 Chore
+
+- **release:** V0.1.5 ([9d6f044](https://github.com/sunshj/mdc/commit/9d6f044))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.5
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.4...v0.1.5)
