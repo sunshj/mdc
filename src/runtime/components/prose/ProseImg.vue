@@ -1,8 +1,8 @@
 <template>
-  <div class="img-wrapper">
+  <span class="img-wrapper">
     <NuxtImg :src="refinedSrc" :alt :width :height :title class="prose-img" />
-    <div v-if="alt" class="img-title">{{ title || alt }}</div>
-  </div>
+    <span v-if="alt" class="img-title">{{ title || alt }}</span>
+  </span>
 </template>
 
 <script setup lang="ts">
