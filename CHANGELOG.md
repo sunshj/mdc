@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.4
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.3...v0.1.4)
+
+### 🚀 Enhancements
+
+- Add file icon mapping and clear button in play page ([bc90906](https://github.com/sunshj/mdc/commit/bc90906))
+
+### 🏡 Chore
+
+- **release:** V0.1.3 ([ca8d5a7](https://github.com/sunshj/mdc/commit/ca8d5a7))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.3
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.2...v0.1.3)
