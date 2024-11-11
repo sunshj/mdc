@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import { computed } from '#imports'
-import { useFileIcons } from '../../composables/file-icons'
+import { useMdcpConfig } from '../../composables/mdcp-config'
 import type { BuiltinLanguage } from 'shiki'
 
 const props = withDefaults(
@@ -50,10 +50,10 @@ const props = withDefaults(
   }
 )
 
-const iconMap = useFileIcons()
+const { icons } = useMdcpConfig()
 
 const icon = computed(
-  () => iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language ?? '')
+  () => icons.get(props.filename?.toLowerCase()) || icons.get(props.language ?? '')
 )
 
 const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)

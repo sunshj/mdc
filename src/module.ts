@@ -7,11 +7,9 @@ import {
 } from '@nuxt/kit'
 import { defu } from 'defu'
 import { name, version } from '../package.json'
-import { defaultFileIconMap } from './runtime/config'
+import { defaultMdcpConfig } from './runtime/config'
 
-export interface ModuleOptions {
-  fileIconMap?: Record<string, string>
-}
+export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -19,10 +17,8 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'mdcp',
     version
   },
-  defaults: {
-    fileIconMap: defaultFileIconMap
-  },
-  async setup(options, nuxt) {
+  defaults: {},
+  async setup(_, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve('./runtime')
 
@@ -37,8 +33,8 @@ export default defineNuxtModule<ModuleOptions>({
       keepComments: true
     })
 
-    // add to runtime config
-    nuxt.options.runtimeConfig.public.mdcp = defu(nuxt.options.runtimeConfig.public.mdcp!, options)
+    // add to app config
+    nuxt.options.appConfig.mdcp = defu(defaultMdcpConfig, nuxt.options.appConfig.mdcp || {})
 
     // css
     nuxt.options.css.unshift(resolve(runtimeDir, 'theme.css'))
@@ -46,8 +42,8 @@ export default defineNuxtModule<ModuleOptions>({
     // composables
     addImports([
       {
-        name: 'useFileIcons',
-        from: resolve(runtimeDir, 'composables', 'file-icons')
+        name: 'useMdcpConfig',
+        from: resolve(runtimeDir, 'composables', 'mdcp-config')
       }
     ])
 

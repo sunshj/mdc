@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import { computed, ref, useSlots } from '#imports'
-import { useFileIcons } from '../composables/file-icons'
+import { useMdcpConfig } from '../composables/mdcp-config'
 
 type SlotVNodeProps = {
   code?: string
@@ -50,13 +50,13 @@ const activeTabIndex = ref(0)
 
 const code = computed(() => defaultSlots.value[activeTabIndex.value]?.props?.code)
 
-const iconMap = useFileIcons()
+const { icons } = useMdcpConfig()
 
 function icon(props: SlotVNodeProps) {
   return (
     props?.icon ||
-    iconMap.get(props?.filename?.toLowerCase() ?? '') ||
-    iconMap.get(props?.language ?? '')
+    icons.get(props?.filename?.toLowerCase() ?? '') ||
+    icons.get(props?.language ?? '')
   )
 }
 

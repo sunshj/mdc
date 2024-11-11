@@ -1,4 +1,4 @@
-export const defaultFileIconMap = {
+export const defaultCodeFileIconMap = {
   'package.json': 'vscode-icons:file-type-node',
   'tsconfig.json': 'vscode-icons:file-type-tsconfig',
   '.npmrc': 'vscode-icons:file-type-npm',
@@ -44,4 +44,8 @@ export const defaultFileIconMap = {
   json: 'vscode-icons:file-type-json',
   sh: 'vscode-icons:file-type-shell',
   bash: 'vscode-icons:file-type-shell'
+}
+
+export const defaultMdcpConfig = {
+  codeIconMap: defaultCodeFileIconMap
 }

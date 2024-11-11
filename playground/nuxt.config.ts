@@ -6,12 +6,6 @@ export default defineNuxtConfig({
     classSuffix: ''
   },
 
-  mdcp: {
-    fileIconMap: {
-      'tailwind.config.cjs': 'vscode-icons:file-type-tailwind'
-    }
-  },
-
   icon: {
     clientBundle: {
       scan: true
