@@ -21,19 +21,13 @@ const generate = computed(
 
 <style scoped>
 .prose-h1 {
-  scroll-margin: 5rem; /* 80px */
-  font-size: 2.25rem; /* 36px */
-  line-height: 2.5rem; /* 40px */
-  font-weight: 800;
+  scroll-margin: 5rem;
   letter-spacing: -0.025em;
   text-decoration: none;
-  margin: 1rem 0;
-}
 
-@media (min-width: 1024px) {
-  .prose-h1 {
-    font-size: 3rem; /* 48px */
-    line-height: 1;
-  }
+  line-height: 1.25;
+  font-weight: 600;
+  font-size: 2.25rem;
+  margin: 1rem 0;
 }
 </style>

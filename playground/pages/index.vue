@@ -37,7 +37,7 @@ const { data } = useFetch(componentsMdUrl, { server: false })
   transition: width 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 840px) {
   .toc {
     display: none;
   }

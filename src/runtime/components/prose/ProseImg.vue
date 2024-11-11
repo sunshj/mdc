@@ -46,8 +46,8 @@ const refinedSrc = computed(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem; /* 8px */
-  margin: 1rem 0;
+  gap: 0.5rem;
+  margin: 1em 0;
 }
 
 .prose-img {

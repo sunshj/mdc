@@ -6,9 +6,9 @@
 
 <style scoped>
 .prose-blockquote {
-  border-left: 3px solid var(--mdc-border);
+  border-left: 0.25em solid var(--mdc-border);
   font-style: italic;
-  padding-left: 1.25rem;
-  margin: 1rem 0;
+  padding-left: 1em;
+  margin: 1em 0;
 }
 </style>

@@ -229,17 +229,21 @@ After
 
 ::code-group
 ::div{label="Preview" style="padding:5px 10px"}
-
-- Foo
-- Bar
-- Baz
-
+- First item
+- Second item
+- Third item
+    - Indented item
+    - Indented item
+- Fourth item
 ::
 
 ```md [Code]
-- Foo
-- Bar
-- Baz
+- First item
+- Second item
+- Third item
+    - Indented item
+    - Indented item
+- Fourth item
 ```
 
 ::
@@ -248,17 +252,21 @@ After
 
 ::code-group
 ::div{label="Preview" style="padding:5px 10px"}
-
-1. Foo
-2. Bar
-3. Baz
-
+1. First item
+2. Second item
+3. Third item
+    1. Indented item
+    2. Indented item
+4. Fourth item
 ::
 
 ```md [Code]
-1. Foo
-2. Bar
-3. Baz
+1. First item
+2. Second item
+3. Third item
+    1. Indented item
+    2. Indented item
+4. Fourth item
 ```
 
 ::

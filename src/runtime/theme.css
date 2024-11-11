@@ -9,7 +9,6 @@
   --mdc-muted-80: hsl(240 4.8% 95.9% / 0.8);
 
   --mdc-border: hsl(240 5.9% 90%);
-  --mdc-input: hsl(240 5.9% 90%);
 
   --mdc-primary: hsl(240 5.9% 10%);
   --mdc-primary-foreground: hsl(0 0% 98%);
@@ -36,7 +35,6 @@
   --mdc-muted-80: hsl(240 3.7% 15.9% / 0.8);
 
   --mdc-border: hsl(240 3.7% 15.9%);
-  --mdc-input: hsl(240 3.7% 15.9%);
 
   --mdc-primary: hsl(0 0% 98%);
   --mdc-primary-foreground: hsl(240 5.9% 10%);

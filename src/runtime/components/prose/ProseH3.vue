@@ -21,12 +21,13 @@ const generate = computed(
 
 <style scoped>
 .prose-h3 {
-  scroll-margin: 5rem; /* 80px */
-  font-size: 1.5rem; /* 24px */
-  line-height: 2rem; /* 32px */
-  font-weight: 600;
-  text-decoration: none;
+  scroll-margin: 5rem;
   letter-spacing: -0.025em;
-  margin: 0.5rem 0; /* 16px */
+  text-decoration: none;
+
+  font-size: 1.375rem;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5em;
 }
 </style>

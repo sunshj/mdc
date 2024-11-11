@@ -7,6 +7,6 @@
 <style scoped>
 .prose-p {
   line-height: 1.75;
-  margin: 1rem 0;
+  margin: 1em 0;
 }
 </style>

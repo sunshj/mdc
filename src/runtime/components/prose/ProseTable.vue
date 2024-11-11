@@ -10,7 +10,7 @@
 .table-wrapper {
   width: 100%;
   overflow-y: auto;
-  margin: 1rem 0;
+  margin: 1em 0;
 }
 
 .prose-table {
