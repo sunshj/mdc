@@ -412,3 +412,57 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   ```
 
 ::
+
+
+### Custom
+
+#### ColorModeButton
+::code-group
+  ::div{label="Preview" style="padding:5px 10px"}
+    :color-mode-button
+  ::
+
+  ```vue [components/global/ColorModeButton.vue]
+  <template>
+    <button class="color-mode-button" @click="$colorMode.preference = next()">
+      <SmartIcon v-if="$colorMode.preference === 'light'" :size="24" name="lucide:sun" />
+      <SmartIcon v-else-if="$colorMode.preference === 'dark'" :size="24" name="lucide:moon" />
+    </button>
+  </template>
+
+  <script setup lang="ts">
+  import { useCycleList } from '@vueuse/core'
+
+  const { next } = useCycleList(['light', 'dark'])
+  </script>
+
+  <style scoped>
+  .color-mode-button {
+    background: var(--mdc-background);
+    border: 2px solid var(--mdc-border);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--mdc-primary);
+  }
+  </style>
+  ```
+
+
+  ```mdc [Usage]
+  :color-mode-button
+  ```
+::
+
+
+
+
+
+
+:br
+:br
+:br
+:br
