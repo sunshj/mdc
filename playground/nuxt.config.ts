@@ -11,5 +11,11 @@ export default defineNuxtConfig({
       '.prettierrc': 'vscode-icons:file-type-light-prettier',
       '.prettierignore': 'vscode-icons:file-type-light-prettier'
     }
+  },
+
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
   }
 })
