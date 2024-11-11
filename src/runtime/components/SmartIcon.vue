@@ -1,10 +1,10 @@
 <template>
   <!-- iconify -->
-  <Icon v-if="isIcon" :name :size />
+  <Icon v-if="isIcon" :name="props.name" :size="props.size" />
   <!-- image -->
   <NuxtImg
     v-else
-    :src="name"
+    :src="props.name"
     :style="{ display: 'inline', width: `${size}px`, height: `${size}px` }"
   />
 </template>
@@ -13,10 +13,15 @@
 import { stringToIcon, validateIconName } from '@iconify/utils'
 import { computed } from '#imports'
 
-const { name, size = 16 } = defineProps<{
-  name: string
-  size?: number
-}>()
+const props = withDefaults(
+  defineProps<{
+    name: string
+    size?: number
+  }>(),
+  {
+    size: 16
+  }
+)
 
-const isIcon = computed(() => validateIconName(stringToIcon(name)))
+const isIcon = computed(() => validateIconName(stringToIcon(props.name)))
 </script>

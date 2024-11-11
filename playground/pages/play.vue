@@ -12,7 +12,7 @@
     <button class="clear" @click="clear">clear</button>
 
     <div class="output">
-      <MDC v-for="{ id, value } in output" :key="id" :value="value" />
+      <MDC v-for="{ id, value } in output" :key="id" :value />
     </div>
   </div>
 </template>

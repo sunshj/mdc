@@ -1,24 +1,26 @@
 <template>
-  <div :class="{ card: true, 'no-header': !showHeader }">
-    <div v-if="showHeader && filename" class="card-header">
+  <div :class="{ card: true, 'no-header': !props.showHeader }">
+    <div v-if="props.showHeader && props.filename" class="card-header">
       <SmartIcon v-if="icon" :name="icon" class="icon" />
-      {{ filename }}
-      <CodeCopy :code class="copy-btn" />
+      {{ props.filename }}
+      <CodeCopy :code="props.code" class="copy-btn" />
     </div>
 
-    <span v-if="!filename" class="absolute-copy-btn"><CodeCopy :code /></span>
+    <span v-if="!props.filename" class="absolute-copy-btn"><CodeCopy :code="props.code" /></span>
 
-    <span v-if="!filename && !isSingleLine" class="absolute-language">{{ language }}</span>
+    <span v-if="!props.filename && !isSingleLine" class="absolute-language">
+      {{ props.language }}
+    </span>
 
     <div class="card-body">
       <div
         :class="{
           'code-wrapper': true,
-          'inline-copy': showHeader && !filename,
-          'no-language': !language
+          'inline-copy': props.showHeader && !props.filename,
+          'no-language': !props.language
         }"
       >
-        <pre class="prose-pre" :class="$props.class" :style="style">
+        <pre class="prose-pre" v-bind="$attrs">
           <slot />
         </pre>
       </div>
@@ -54,15 +56,6 @@ const props = defineProps({
   },
   meta: {
     type: String,
-    default: null
-  },
-  class: {
-    type: String,
-    default: null
-  },
-
-  style: {
-    type: [String, Object],
     default: null
   }
 })

@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :href :target="refinedTarget" :external class="prose-a">
+  <NuxtLink :href="props.href" :target="refinedTarget" :external="props.external" class="prose-a">
     <slot />
   </NuxtLink>
 </template>
@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { computed } from '#imports'
 
-const { href, external } = defineProps({
+const props = defineProps({
   href: {
     type: String,
     default: ''
@@ -20,8 +20,8 @@ const { href, external } = defineProps({
 })
 
 const refinedTarget = computed(() => {
-  if (href.startsWith('/') && !href.startsWith('//')) return '_self'
-  if (href.startsWith('#')) return '_self'
+  if (props.href.startsWith('/') && !props.href.startsWith('//')) return '_self'
+  if (props.href.startsWith('#')) return '_self'
   return '_blank'
 })
 </script>

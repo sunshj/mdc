@@ -1,5 +1,5 @@
 <template>
-  <kbd :class="['shortcut', size]">
+  <kbd :class="['shortcut', props.size]">
     {{ computedValue }}
   </kbd>
 </template>
@@ -7,10 +7,15 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from '#imports'
 
-const { value, size = 'sm' } = defineProps<{
-  value: string
-  size?: 'xs' | 'sm' | 'md'
-}>()
+const props = withDefaults(
+  defineProps<{
+    value: string
+    size?: 'xs' | 'sm' | 'md'
+  }>(),
+  {
+    size: 'sm'
+  }
+)
 
 const metaSymbol = ref('Ctrl')
 
@@ -19,7 +24,7 @@ onMounted(() => {
     navigator && navigator.userAgent && /Macintosh;/.test(navigator.userAgent) ? '⌘' : 'Ctrl'
 })
 
-const computedValue = computed(() => (value === 'meta' ? metaSymbol : value))
+const computedValue = computed(() => (props.value === 'meta' ? metaSymbol : props.value))
 </script>
 
 <style scoped>

@@ -1,7 +1,14 @@
 <template>
   <span class="img-wrapper">
-    <NuxtImg :src="refinedSrc" :alt :width :height :title class="prose-img" />
-    <span v-if="alt" class="img-title">{{ title || alt }}</span>
+    <NuxtImg
+      :src="refinedSrc"
+      :alt="props.alt"
+      :width="props.width"
+      :height="props.height"
+      :title="props.title"
+      class="prose-img"
+    />
+    <span v-if="alt" class="img-title">{{ props.title || props.alt }}</span>
   </span>
 </template>
 
@@ -9,7 +16,7 @@
 import { joinURL, withLeadingSlash, withTrailingSlash } from 'ufo'
 import { computed, useRuntimeConfig } from '#imports'
 
-const { alt, src, title, height, width } = defineProps({
+const props = defineProps({
   src: {
     type: String,
     default: ''
@@ -32,12 +39,14 @@ const { alt, src, title, height, width } = defineProps({
   }
 })
 
+const { app } = useRuntimeConfig()
+
 const refinedSrc = computed(() => {
-  if (src?.startsWith('/') && !src.startsWith('//')) {
-    const _base = withLeadingSlash(withTrailingSlash(useRuntimeConfig().app.baseURL))
-    if (_base !== '/' && !src.startsWith(_base)) return joinURL(_base, src)
+  if (props.src?.startsWith('/') && !props.src.startsWith('//')) {
+    const _base = withLeadingSlash(withTrailingSlash(app.baseURL))
+    if (_base !== '/' && !props.src.startsWith(_base)) return joinURL(_base, props.src)
   }
-  return src
+  return props.src
 })
 </script>
 

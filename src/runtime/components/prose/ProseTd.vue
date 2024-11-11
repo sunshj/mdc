@@ -8,7 +8,7 @@
 .prose-td {
   border: 1px solid var(--mdc-border);
   text-align: left;
-  padding: 0.5rem 1rem; /* 8px 16px */
+  padding: 0.5rem 1rem;
 }
 
 .prose-td[align='center'] {

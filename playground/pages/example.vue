@@ -16,7 +16,7 @@
             </NuxtLink>
           </div>
         </div>
-        <MDCRenderer :body="body" />
+        <MDCRenderer :body />
       </template>
     </MDC>
   </div>

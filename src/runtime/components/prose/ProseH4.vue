@@ -1,5 +1,5 @@
 <template>
-  <h4 :id class="prose-h4">
+  <h4 :id="props.id" class="prose-h4">
     <NuxtLink v-if="generate" :href="`#${id}`">
       <slot />
     </NuxtLink>
@@ -10,12 +10,12 @@
 <script setup lang="ts">
 import { computed, useRuntimeConfig } from '#imports'
 
-const { id } = defineProps<{ id?: string }>()
+const props = defineProps<{ id?: string }>()
 
 const { headings } = useRuntimeConfig().public.mdc
 
 const generate = computed(
-  () => !!id && typeof headings?.anchorLinks === 'object' && !!headings.anchorLinks.h4
+  () => !!props.id && typeof headings?.anchorLinks === 'object' && !!headings.anchorLinks.h4
 )
 </script>
 

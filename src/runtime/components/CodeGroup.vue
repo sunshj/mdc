@@ -4,27 +4,27 @@
       <div class="code-group-tabs">
         <div
           v-for="(slot, i) in defaultSlots"
-          :key="`${i}-${label(slot.props)}`"
-          :value="label(slot.props)"
+          :key="`${i}-${label(slot.props!)}`"
+          :value="label(slot.props!)"
           :class="{
             'code-group-tab': true,
             active: activeTabIndex === i
           }"
           @click="activeTabIndex = i"
         >
-          <SmartIcon v-if="icon(slot?.props)" :name="icon(slot?.props)!" />
-          {{ label(slot.props) }}
+          <SmartIcon v-if="icon(slot?.props!)" :name="icon(slot?.props!)!" />
+          {{ label(slot.props!) }}
         </div>
 
-        <CodeCopy v-if="code" :code="code" class="copy-btn" />
+        <CodeCopy v-if="code" :code class="copy-btn" />
       </div>
     </div>
 
     <div
       v-for="(slot, i) in defaultSlots"
       v-show="activeTabIndex === i"
-      :key="`${i}${label(slot.props)}`"
-      :value="label(slot.props)"
+      :key="`${i}${label(slot.props!)}`"
+      :value="label(slot.props!)"
     >
       <component :is="slot" :show-header="false" />
     </div>
@@ -34,6 +34,12 @@
 <script setup lang="ts">
 import { computed, ref, useSlots } from '#imports'
 import { useFileIcons } from '../composables/file-icons'
+import type ProsePre from './prose/ProsePre.vue'
+
+type SlotVNodeProps = InstanceType<typeof ProsePre>['$props'] & {
+  icon?: string
+  label?: string
+}
 
 const defaultSlots = computed(() => useSlots()?.default?.() || [])
 
@@ -43,11 +49,15 @@ const code = computed(() => defaultSlots.value[activeTabIndex.value]?.props?.cod
 
 const iconMap = useFileIcons()
 
-function icon(props: any) {
-  return props?.icon || iconMap.get(props?.filename?.toLowerCase()) || iconMap.get(props?.language)
+function icon(props: SlotVNodeProps) {
+  return (
+    props?.icon ||
+    iconMap.get(props?.filename?.toLowerCase() ?? '') ||
+    iconMap.get(props?.language ?? '')
+  )
 }
 
-function label(props: any) {
+function label(props: SlotVNodeProps) {
   return props?.label || props?.filename
 }
 </script>
