@@ -16,28 +16,16 @@
 import { joinURL, withLeadingSlash, withTrailingSlash } from 'ufo'
 import { computed, useRuntimeConfig } from '#imports'
 
-const props = defineProps({
-  src: {
-    type: String,
-    default: ''
-  },
-  alt: {
-    type: String,
-    default: ''
-  },
-  title: {
-    type: String,
-    default: ''
-  },
-  width: {
-    type: [String, Number],
-    default: undefined
-  },
-  height: {
-    type: [String, Number],
-    default: undefined
-  }
-})
+const props = withDefaults(
+  defineProps<{
+    src: string
+    title?: string
+    alt?: string
+    width?: string | number
+    height?: string | number
+  }>(),
+  {}
+)
 
 const { app } = useRuntimeConfig()
 

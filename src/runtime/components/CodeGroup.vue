@@ -36,7 +36,7 @@ import { computed, ref, useSlots } from '#imports'
 import { useFileIcons } from '../composables/file-icons'
 import type ProsePre from './prose/ProsePre.vue'
 
-type SlotVNodeProps = InstanceType<typeof ProsePre>['$props'] & {
+type SlotVNodeProps = Partial<InstanceType<typeof ProsePre>['$props']> & {
   icon?: string
   label?: string
 }

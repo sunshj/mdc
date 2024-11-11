@@ -29,39 +29,27 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type PropType } from '#imports'
+import { computed } from '#imports'
 import { useFileIcons } from '../../composables/file-icons'
 import type { BuiltinLanguage } from 'shiki'
 
-const props = defineProps({
-  code: {
-    type: String,
-    default: ''
-  },
-  language: {
-    type: String as PropType<BuiltinLanguage>,
-    default: null
-  },
-  filename: {
-    type: String,
-    default: null
-  },
-  showHeader: {
-    type: Boolean,
-    default: true
-  },
-  highlights: {
-    type: Array as () => number[],
-    default: () => []
-  },
-  meta: {
-    type: String,
-    default: null
+const props = withDefaults(
+  defineProps<{
+    code: string
+    language?: BuiltinLanguage
+    filename?: string
+    showHeader?: boolean
+    highlights?: number[]
+    meta?: string
+  }>(),
+  {
+    showHeader: true,
+    highlights: () => []
   }
-})
+)
 
 const iconMap = useFileIcons()
-const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language)
+const icon = iconMap.get(props.filename?.toLowerCase() ?? '') || iconMap.get(props.language ?? '')
 
 const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 </script>

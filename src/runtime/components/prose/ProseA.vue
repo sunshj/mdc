@@ -7,17 +7,10 @@
 <script setup lang="ts">
 import { computed } from '#imports'
 
-const props = defineProps({
-  href: {
-    type: String,
-    default: ''
-  },
-  external: {
-    type: Boolean,
-    default: undefined,
-    required: false
-  }
-})
+const props = defineProps<{
+  href: string
+  external?: boolean
+}>()
 
 const refinedTarget = computed(() => {
   if (props.href.startsWith('/') && !props.href.startsWith('//')) return '_self'
