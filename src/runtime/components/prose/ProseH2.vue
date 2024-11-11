@@ -22,9 +22,10 @@ const generate = computed(
 <style scoped>
 .prose-h2 {
   scroll-margin: 5rem;
-  font-size: '1.75em';
   letter-spacing: -0.025em;
   text-decoration: none;
+
+  font-size: 1.75em;
   transition: color 0.2s ease-in-out;
   margin: 1.75rem 0 0.5em;
   line-height: 1.25;
