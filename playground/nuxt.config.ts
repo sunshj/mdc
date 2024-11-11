@@ -8,8 +8,13 @@ export default defineNuxtConfig({
 
   mdcp: {
     fileIconMap: {
-      '.prettierrc': 'vscode-icons:file-type-light-prettier',
-      '.prettierignore': 'vscode-icons:file-type-light-prettier'
+      'tailwind.config.cjs': 'vscode-icons:file-type-tailwind'
+    }
+  },
+
+  icon: {
+    clientBundle: {
+      scan: true
     }
   },
 

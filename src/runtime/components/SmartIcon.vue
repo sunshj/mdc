@@ -5,7 +5,7 @@
   <NuxtImg
     v-else
     :src="props.name"
-    :style="{ display: 'inline', width: `${size}px`, height: `${size}px` }"
+    :style="{ display: 'inline', width: `${props.size}px`, height: `${props.size}px` }"
   />
 </template>
 

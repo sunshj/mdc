@@ -34,12 +34,15 @@
 <script setup lang="ts">
 import { computed, ref, useSlots } from '#imports'
 import { useFileIcons } from '../composables/file-icons'
-import type ProsePre from './prose/ProsePre.vue'
 
-type SlotVNodeProps = Partial<InstanceType<typeof ProsePre>['$props']> & {
+type SlotVNodeProps = {
+  code?: string
+  filename?: string
+  language?: string
+  showHeader?: boolean
   icon?: string
   label?: string
-}
+} & Record<string, any>
 
 const defaultSlots = computed(() => useSlots()?.default?.() || [])
 

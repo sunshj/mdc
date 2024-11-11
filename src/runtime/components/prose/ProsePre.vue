@@ -20,7 +20,7 @@
           'no-language': !props.language
         }"
       >
-        <pre class="prose-pre" v-bind="$attrs">
+        <pre class="prose-pre" :class="props.class">
           <slot />
         </pre>
       </div>
@@ -41,15 +41,20 @@ const props = withDefaults(
     showHeader?: boolean
     highlights?: number[]
     meta?: string
+    class?: string
   }>(),
   {
+    filename: '',
     showHeader: true,
     highlights: () => []
   }
 )
 
 const iconMap = useFileIcons()
-const icon = iconMap.get(props.filename?.toLowerCase() ?? '') || iconMap.get(props.language ?? '')
+
+const icon = computed(
+  () => iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language ?? '')
+)
 
 const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 </script>
