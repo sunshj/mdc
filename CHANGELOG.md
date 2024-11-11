@@ -1,6 +1,35 @@
 # Changelog
 
 
+## v0.1.7
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.6...v0.1.7)
+
+### 🚀 Enhancements
+
+- **playground:** Add TOC and MDCRenderer to example page ([0ca4cdc](https://github.com/sunshj/mdc/commit/0ca4cdc))
+- **playground:** Add smooth scroll behavior ([cf55d77](https://github.com/sunshj/mdc/commit/cf55d77))
+
+### 🩹 Fixes
+
+- **prose:** Change div to span in ProseImg component ([a489e1c](https://github.com/sunshj/mdc/commit/a489e1c))
+
+### 💅 Refactors
+
+- Update component styles ([3e75f8f](https://github.com/sunshj/mdc/commit/3e75f8f))
+
+### 📦 Build
+
+- Update release script to include --push flag ([be3ff2b](https://github.com/sunshj/mdc/commit/be3ff2b))
+
+### 🏡 Chore
+
+- **release:** V0.1.6 ([f65440f](https://github.com/sunshj/mdc/commit/f65440f))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.6
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.5...v0.1.6)
