@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.1.8
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.7...v0.1.8)
+
+### 🚀 Enhancements
+
+- **playground:** Update file icon map and add clientBundle scan ([ac54336](https://github.com/sunshj/mdc/commit/ac54336))
+- **playground:** Add ColorModeButton component ([4291175](https://github.com/sunshj/mdc/commit/4291175))
+
+### 💅 Refactors
+
+- Update props usage in components ([e583d28](https://github.com/sunshj/mdc/commit/e583d28))
+- **prose:** Simplify prop definitions with TypeScript ([978638e](https://github.com/sunshj/mdc/commit/978638e))
+
+### 🎨 Styles
+
+- **prose:** Adjust ProsePre component right padding ([beaefb4](https://github.com/sunshj/mdc/commit/beaefb4))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.7
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.6...v0.1.7)
