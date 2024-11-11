@@ -112,7 +112,7 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
   position: absolute;
   z-index: 10;
   top: 0.75rem;
-  right: 0.75rem;
+  right: 0.5rem;
 }
 
 .absolute-language {
