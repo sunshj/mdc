@@ -20,9 +20,15 @@
           'no-language': !props.language
         }"
       >
-        <pre class="prose-pre" :class="props.class">
+        <pre ref="preRef" class="prose-pre" :class="props.class">
           <slot />
         </pre>
+
+        <div v-if="collapseVisible" class="code-block-collapse">
+          <button @click="collapsed = !collapsed">
+            {{ collapsed ? 'Expand code' : 'Collapse code' }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +56,14 @@ const props = withDefaults(
   }
 )
 
-const { icons } = useMdcpConfig()
+const { icons, codeBlock } = useMdcpConfig()
+
+const preRef = ref<HTMLPreElement>()
+const collapsed = ref(codeBlock.defaultFold)
+const collapseVisible = computed(
+  () => codeBlock.defaultFold && preRef.value?.scrollHeight > codeBlock.maxHeight
+)
+const codeBlockMaxHeight = computed(() => (collapsed.value ? `${codeBlock.maxHeight}px` : 'auto'))
 
 const icon = computed(
   () => icons.get(props.filename?.toLowerCase()) || icons.get(props.language ?? '')
@@ -119,6 +132,7 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
   overflow-x: auto;
   font-size: 14px;
   line-height: 1.25rem;
+  position: relative;
 }
 
 .inline-copy :deep(.line) {
@@ -127,6 +141,24 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 
 .no-language {
   padding-left: 0.75rem;
+}
+
+.code-block-collapse {
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.code-block-collapse button {
+  border: 1px solid var(--mdc-border);
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: var(--mdc-muted);
+  color: var(--mdc-foreground);
+  cursor: pointer;
 }
 </style>
 
@@ -139,6 +171,7 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
   flex-direction: column;
   flex-wrap: wrap;
   padding: 10px 0;
+  max-height: v-bind(codeBlockMaxHeight);
 }
 
 .prose-pre code {

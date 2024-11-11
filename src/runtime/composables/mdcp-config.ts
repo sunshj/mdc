@@ -1,9 +1,10 @@
 import { useAppConfig } from '#imports'
 
 export function useMdcpConfig() {
-  const { codeIconMap } = useAppConfig().mdcp
-  const icons = new Map<string, string>(Object.entries(codeIconMap))
+  const { mdcp } = useAppConfig()
+  const icons = new Map<string, string>(Object.entries(mdcp.codeIconMap))
   return {
+    ...mdcp,
     icons
   }
 }

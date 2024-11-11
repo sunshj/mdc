@@ -47,5 +47,9 @@ export const defaultCodeFileIconMap = {
 }
 
 export const defaultMdcpConfig = {
-  codeIconMap: defaultCodeFileIconMap
+  codeIconMap: defaultCodeFileIconMap,
+  codeBlock: {
+    defaultFold: true,
+    maxHeight: 300
+  }
 }
