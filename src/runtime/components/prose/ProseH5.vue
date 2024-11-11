@@ -21,9 +21,9 @@ const generate = computed(
 
 <style scoped>
 .prose-h5 {
-  scroll-margin: 5rem; /* 80px */
-  font-size: 1.125rem; /* 18px */
-  line-height: 1.75rem; /* 28px */
+  scroll-margin: 5rem;
+  font-size: 1.125rem;
+  line-height: 1.25;
   font-weight: 600;
   letter-spacing: -0.025em;
   text-decoration: none;

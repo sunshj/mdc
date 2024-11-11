@@ -56,10 +56,10 @@ function label(props: any) {
 .card {
   position: relative;
   overflow: hidden;
-  border-radius: 0.5rem; /* 8px */
+  border-radius: 0.5rem;
   border: 1px solid var(--mdc-border);
   background-color: var(--mdc-background);
-  margin: 1rem 0;
+  margin: 1em 0;
   font-size: 14px;
 }
 

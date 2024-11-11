@@ -4,7 +4,7 @@
 
 <style scoped>
 .prose-hr {
-  border-top: 1px solid var(--mdc-border); /* 2px */
-  margin: 1rem 0;
+  border-top: 1px solid var(--mdc-border);
+  margin: 2em 0;
 }
 </style>

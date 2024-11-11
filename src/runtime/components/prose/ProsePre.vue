@@ -77,10 +77,10 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 .card {
   position: relative;
   overflow: hidden;
-  border-radius: 0.5rem; /* 8px */
+  border-radius: 0.5rem;
   border: 1px solid var(--mdc-border);
   background-color: var(--mdc-background);
-  margin: 1rem 0;
+  margin: 1em 0;
 }
 
 .no-header {
@@ -92,35 +92,35 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 
 .card-header {
   display: flex;
-  padding: 0.75rem; /* 12px */
+  padding: 0.75rem;
   border-bottom: 1px solid var(--mdc-border);
   font-size: 14px;
-  line-height: 1.25rem; /* 20px */
+  line-height: 1.25rem;
 }
 
 .icon {
   align-self: center;
-  margin-right: 0.375rem; /* 6px */
+  margin-right: 0.375rem;
 }
 
 .copy-btn {
   margin-left: auto;
-  margin-right: 0.25rem; /* 4px */
+  margin-right: 0.25rem;
 }
 
 .absolute-copy-btn {
   position: absolute;
   z-index: 10;
-  top: 0.75rem; /* 12px */
-  right: 0.75rem; /* 12px */
+  top: 0.75rem;
+  right: 0.75rem;
 }
 
 .absolute-language {
   position: absolute;
   z-index: 5;
   text-transform: uppercase;
-  bottom: 0.5rem; /* 12px */
-  right: 0.5rem; /* 12px */
+  bottom: 0.5rem;
+  right: 0.5rem;
   font-weight: 700;
   color: #ccca;
 }
@@ -132,7 +132,7 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
 .code-wrapper {
   overflow-x: auto;
   font-size: 14px;
-  line-height: 1.25rem; /* 20px */
+  line-height: 1.25rem;
 }
 
 .inline-copy :deep(.line) {

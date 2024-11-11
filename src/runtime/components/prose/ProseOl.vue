@@ -7,6 +7,8 @@
 <style scoped>
 .prose-ol {
   list-style-type: decimal;
-  margin: 0.5rem 0 0.5rem 1.5rem;
+  margin: 1em 0;
+  line-height: 1.75;
+  padding-left: 1.25em;
 }
 </style>
