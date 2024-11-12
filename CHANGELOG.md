@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.10
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.9...v0.1.10)
+
+### 💅 Refactors
+
+- **prose-pre:** Use default threshold value of useIntersectionObserver ([3cf1a4a](https://github.com/sunshj/mdc/commit/3cf1a4a))
+
+### 🎨 Styles
+
+- **prose-img:** Improve styles for inline images ([ba538e4](https://github.com/sunshj/mdc/commit/ba538e4))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.9
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.8...v0.1.9)
