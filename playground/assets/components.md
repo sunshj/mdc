@@ -217,10 +217,15 @@ After
 ::code-group
 ::div{label="Preview" style="padding:5px 10px"}
 ![Photo by Drew Beamer](https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80 "Get image from unsplash.com")
+
+[![npm version](https://img.shields.io/npm/v/@sunshj/mdc/latest.svg?style=flat&colorA=020420&colorB=00DC82)](https://npmjs.com/package/@sunshj/mdc) [![Nuxt](https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js)](https://nuxt.com)
+ 
 ::
 
 ```md [Code]
 ![Photo by Drew Beamer](https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80 "Get image from unsplash.com")
+
+[![npm version](https://img.shields.io/npm/v/@sunshj/mdc/latest.svg?style=flat&colorA=020420&colorB=00DC82)](https://npmjs.com/package/@sunshj/mdc) [![Nuxt](https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js)](https://nuxt.com)
 ```
 
 ::

@@ -59,3 +59,19 @@ const refinedSrc = computed(() => {
   font-weight: 500;
 }
 </style>
+
+<style>
+.prose-a .img-wrapper {
+  display: inline-block;
+  margin: 0;
+  padding-right: 0.5em;
+}
+
+.prose-a .img-wrapper .prose-img {
+  width: auto;
+}
+
+.prose-a .img-wrapper .img-title {
+  display: none;
+}
+</style>
