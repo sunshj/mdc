@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.9
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.8...v0.1.9)
+
+### 🚀 Enhancements
+
+- **prose-pre:** Support fold code block ([82c3c52](https://github.com/sunshj/mdc/commit/82c3c52))
+- **prose-pre:** Improve code block fold ([0fd9942](https://github.com/sunshj/mdc/commit/0fd9942))
+
+### 💅 Refactors
+
+- **config:** Migrate fileIconMap to app.config and simplify module ([32e6f3b](https://github.com/sunshj/mdc/commit/32e6f3b))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.8
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.7...v0.1.8)
