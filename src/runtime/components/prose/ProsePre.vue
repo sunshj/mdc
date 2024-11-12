@@ -24,7 +24,7 @@
           <slot />
         </pre>
 
-        <div v-if="collapseVisible" class="code-block-collapse">
+        <div v-if="collapseButtonVisible" class="collapse-button-wrapper">
           <button @click="collapsed = !collapsed">
             {{ collapsed ? 'Expand code' : 'Collapse code' }}
           </button>
@@ -35,7 +35,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from '#imports'
+import { useIntersectionObserver } from '@vueuse/core'
+import { computed, onUnmounted, ref, toRef } from '#imports'
 import { useMdcpConfig } from '../../composables/mdcp-config'
 import type { BuiltinLanguage } from 'shiki'
 
@@ -59,17 +60,31 @@ const props = withDefaults(
 const { icons, codeBlock } = useMdcpConfig()
 
 const preRef = ref<HTMLPreElement>()
-const collapsed = ref(codeBlock.defaultFold)
-const collapseVisible = computed(
-  () => codeBlock.defaultFold && preRef.value?.scrollHeight > codeBlock.maxHeight
+const collapsed = toRef(codeBlock.enableFold)
+const codeBlockMaxHeight = computed(() => (collapsed.value ? `${codeBlock.foldHeight}px` : 'auto'))
+const collapseButtonVisible = ref(false)
+
+const observer = useIntersectionObserver(
+  preRef,
+  ([{ isIntersecting, target }]) => {
+    if (isIntersecting && codeBlock.enableFold) {
+      collapseButtonVisible.value = target.scrollHeight > codeBlock.foldHeight
+    } else {
+      collapseButtonVisible.value = false
+    }
+  },
+  { threshold: 0.5 }
 )
-const codeBlockMaxHeight = computed(() => (collapsed.value ? `${codeBlock.maxHeight}px` : 'auto'))
 
 const icon = computed(
   () => icons.get(props.filename?.toLowerCase()) || icons.get(props.language ?? '')
 )
 
 const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
+
+onUnmounted(() => {
+  observer.stop()
+})
 </script>
 
 <style scoped>
@@ -143,16 +158,16 @@ const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
   padding-left: 0.75rem;
 }
 
-.code-block-collapse {
+.collapse-button-wrapper {
   width: 100%;
   position: absolute;
-  bottom: 30px;
+  bottom: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.code-block-collapse button {
+.collapse-button-wrapper > button {
   border: 1px solid var(--mdc-border);
   padding: 2px 5px;
   border-radius: 4px;
