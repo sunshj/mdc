@@ -64,17 +64,13 @@ const collapsed = toRef(codeBlock.enableFold)
 const codeBlockMaxHeight = computed(() => (collapsed.value ? `${codeBlock.foldHeight}px` : 'auto'))
 const collapseButtonVisible = ref(false)
 
-const observer = useIntersectionObserver(
-  preRef,
-  ([{ isIntersecting, target }]) => {
-    if (isIntersecting && codeBlock.enableFold) {
-      collapseButtonVisible.value = target.scrollHeight > codeBlock.foldHeight
-    } else {
-      collapseButtonVisible.value = false
-    }
-  },
-  { threshold: 0.5 }
-)
+const observer = useIntersectionObserver(preRef, ([{ isIntersecting, target }]) => {
+  if (isIntersecting && codeBlock.enableFold) {
+    collapseButtonVisible.value = target.scrollHeight > codeBlock.foldHeight
+  } else {
+    collapseButtonVisible.value = false
+  }
+})
 
 const icon = computed(
   () => icons.get(props.filename?.toLowerCase()) || icons.get(props.language ?? '')
