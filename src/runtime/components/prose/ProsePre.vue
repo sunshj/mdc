@@ -161,6 +161,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 
 .collapse-button-wrapper > button {
@@ -170,6 +171,7 @@ onUnmounted(() => {
   background: var(--mdc-muted);
   color: var(--mdc-foreground);
   cursor: pointer;
+  pointer-events: auto;
 }
 </style>
 
