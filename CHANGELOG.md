@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.11
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.10...v0.1.11)
+
+### 🎨 Styles
+
+- **prose-pre:** Pointer-events ([db08024](https://github.com/sunshj/mdc/commit/db08024))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.10
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.9...v0.1.10)
