@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.12
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.11...v0.1.12)
+
+### 🚀 Enhancements
+
+- **package.json:** Add runtime and typesVersions entries ([987f3da](https://github.com/sunshj/mdc/commit/987f3da))
+
+### 🎨 Styles
+
+- **prose:** Add overflow-x auto to ProseBlockquote and adjust ProseImg styles ([e9ae54a](https://github.com/sunshj/mdc/commit/e9ae54a))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.11
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.10...v0.1.11)
