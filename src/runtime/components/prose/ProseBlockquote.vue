@@ -10,5 +10,6 @@
   font-style: italic;
   padding-left: 1em;
   margin: 1em 0;
+  overflow-x: auto;
 }
 </style>

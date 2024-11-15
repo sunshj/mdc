@@ -69,6 +69,8 @@ const refinedSrc = computed(() => {
 
 .prose-a .img-wrapper .prose-img {
   width: auto;
+  min-height: 1.25rem;
+  border-radius: 0;
 }
 
 .prose-a .img-wrapper .img-title {
