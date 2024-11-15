@@ -14,6 +14,21 @@
       "types": "./dist/types.d.ts",
       "require": "./dist/module.cjs",
       "import": "./dist/module.mjs"
+    },
+    "./runtime/components/*": {
+      "types": "./dist/runtime/components/*.d.ts",
+      "import": "./dist/runtime/components/*"
+    },
+    "./runtime/*": {
+      "types": "./dist/runtime/*.d.ts",
+      "import": "./dist/runtime/*.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*"
+      ]
     }
   },
   "publishConfig": {
