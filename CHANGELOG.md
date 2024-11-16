@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.15
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.14...v0.1.15)
+
+### 🩹 Fixes
+
+- **prose-pre:** Correct css selectors ([6da16d0](https://github.com/sunshj/mdc/commit/6da16d0))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.14
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.13...v0.1.14)
