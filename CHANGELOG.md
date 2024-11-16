@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.13
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.12...v0.1.13)
+
+### 🚀 Enhancements
+
+- **prose-pre:** Add collapse button with hover effect in ProsePre component ([fa2c9d7](https://github.com/sunshj/mdc/commit/fa2c9d7))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.12
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.11...v0.1.12)
