@@ -147,11 +147,11 @@ onUnmounted(() => {
   position: relative;
 }
 
-.prose-pre-card [name='code-wrapper'] [data-inline-copy='true'] :deep(.line) {
+.prose-pre-card [name='code-wrapper'][data-inline-copy='true'] :deep(.line) {
   padding-right: 2.75rem;
 }
 
-.prose-pre-card [name='code-wrapper'] [data-no-language='true'] {
+.prose-pre-card [name='code-wrapper'][data-no-language='true'] {
   padding-left: 0.75rem;
 }
 
