@@ -24,8 +24,12 @@
           <slot />
         </pre>
 
-        <div v-if="collapseButtonVisible" class="collapse-button-wrapper">
-          <button @click="collapsed = !collapsed">
+        <div
+          v-if="collapseButtonVisible"
+          :data-collapsed="collapsed"
+          class="collapse-button-wrapper"
+        >
+          <button class="collapse-button" @click="collapsed = !collapsed">
             {{ collapsed ? 'Expand code' : 'Collapse code' }}
           </button>
         </div>
@@ -164,7 +168,15 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.collapse-button-wrapper > button {
+.collapse-button-wrapper[data-collapsed='false'] {
+  display: none;
+}
+
+.code-wrapper:hover .collapse-button-wrapper {
+  display: flex;
+}
+
+.collapse-button {
   border: 1px solid var(--mdc-border);
   padding: 2px 5px;
   border-radius: 4px;
