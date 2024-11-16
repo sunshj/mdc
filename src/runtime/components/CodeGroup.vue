@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="code-group-card">
     <div class="code-group">
       <div class="code-group-tabs">
         <div
@@ -16,7 +16,7 @@
           {{ label(slot.props!) }}
         </div>
 
-        <CodeCopy v-if="code" :code class="copy-btn" />
+        <CodeCopy v-if="code" :code name="copy-btn" />
       </div>
     </div>
 
@@ -66,7 +66,7 @@ function label(props: SlotVNodeProps) {
 </script>
 
 <style scoped>
-.card {
+.code-group-card {
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
@@ -106,7 +106,7 @@ function label(props: SlotVNodeProps) {
   border-radius: 6px;
 }
 
-.copy-btn {
+.code-group-tabs [name='copy-btn'] {
   margin-left: auto;
 }
 </style>

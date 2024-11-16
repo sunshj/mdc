@@ -1,5 +1,5 @@
 <template>
-  <span class="img-wrapper">
+  <span class="prose-img-wrapper">
     <NuxtImg
       :src="refinedSrc"
       :alt="props.alt"
@@ -8,7 +8,7 @@
       :title="props.title"
       class="prose-img"
     />
-    <span v-if="alt" class="img-title">{{ props.title || props.alt }}</span>
+    <span v-if="alt" name="title">{{ props.title || props.alt }}</span>
   </span>
 </template>
 
@@ -39,7 +39,7 @@ const refinedSrc = computed(() => {
 </script>
 
 <style scoped>
-.img-wrapper {
+.prose-img-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +52,7 @@ const refinedSrc = computed(() => {
   border-radius: 6px;
 }
 
-.img-title {
+.prose-img-wrapper [name='title'] {
   text-align: center;
   color: var(--mdc-muted-foreground);
   font-size: 0.75rem;
@@ -61,19 +61,19 @@ const refinedSrc = computed(() => {
 </style>
 
 <style>
-.prose-a .img-wrapper {
+.prose-a .prose-img-wrapper {
   display: inline-block;
   margin: 0;
   padding-right: 0.5em;
 }
 
-.prose-a .img-wrapper .prose-img {
+.prose-a .prose-img-wrapper .prose-img {
   width: auto;
   min-height: 1.25rem;
   border-radius: 0;
 }
 
-.prose-a .img-wrapper .img-title {
+.prose-a .prose-img-wrapper [name='title'] {
   display: none;
 }
 </style>

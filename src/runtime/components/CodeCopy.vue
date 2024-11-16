@@ -1,8 +1,8 @@
 <template>
-  <div class="copy-wrapper">
-    <Transition name="fade" mode="out-in">
-      <Icon v-if="!copied" name="lucide:copy" class="copy" @click="copy(props.code)" />
-      <Icon v-else name="lucide:check" class="copy" />
+  <div class="code-copy">
+    <Transition name="copy-fade" mode="out-in">
+      <Icon v-if="!copied" name="lucide:copy" @click="copy(props.code)" />
+      <Icon v-else name="lucide:check" />
     </Transition>
   </div>
 </template>
@@ -23,27 +23,28 @@ whenever(copied, () => {
 </script>
 
 <style scoped>
-.fade-enter-active {
-  transition: opacity 0.5s ease;
+.copy-fade-enter-active,
+.copy-fade-leave-active {
+  transition: opacity 0.2s ease;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.copy-fade-enter-from,
+.copy-fade-leave-to {
   opacity: 0;
 }
 
-.copy-wrapper {
+.code-copy {
   display: flex;
 }
 
-.copy {
+.code-copy .iconify {
   display: block;
   align-self: center;
   cursor: pointer;
   color: var(--mdc-muted-foreground);
 }
 
-.copy:hover {
+.code-copy .iconify:hover {
   color: var(--mdc-primary);
 }
 </style>

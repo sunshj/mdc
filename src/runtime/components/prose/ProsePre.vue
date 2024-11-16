@@ -1,38 +1,35 @@
 <template>
-  <div :class="{ card: true, 'no-header': !props.showHeader }">
-    <div v-if="props.showHeader && props.filename" class="card-header">
+  <div :data-header="props.showHeader" class="prose-pre-card">
+    <div v-if="props.showHeader && props.filename" name="header">
       <SmartIcon v-if="icon" :name="icon" class="icon" />
       {{ props.filename }}
-      <CodeCopy :code="props.code" class="copy-btn" />
+      <CodeCopy :code="props.code" name="copy-btn" />
     </div>
 
-    <span v-if="!props.filename" class="absolute-copy-btn"><CodeCopy :code="props.code" /></span>
+    <span v-if="!props.filename" name="absolute-copy-btn"><CodeCopy :code="props.code" /></span>
 
-    <span v-if="!props.filename && !isSingleLine" class="absolute-language">
+    <span v-if="!props.filename && !isSingleLine" name="absolute-language">
       {{ props.language }}
     </span>
 
-    <div class="card-body">
+    <div name="body">
       <div
-        :class="{
-          'code-wrapper': true,
-          'inline-copy': props.showHeader && !props.filename,
-          'no-language': !props.language
-        }"
+        name="code-wrapper"
+        :data-inline-copy="props.showHeader && !props.filename"
+        :data-no-language="!props.language"
       >
         <pre ref="preRef" class="prose-pre" :class="props.class">
           <slot />
         </pre>
 
-        <div
+        <button
           v-if="collapseButtonVisible"
           :data-collapsed="collapsed"
-          class="collapse-button-wrapper"
+          name="collapse-button"
+          @click="collapsed = !collapsed"
         >
-          <button class="collapse-button" @click="collapsed = !collapsed">
-            {{ collapsed ? 'Expand code' : 'Collapse code' }}
-          </button>
-        </div>
+          {{ collapsed ? 'Expand code' : 'Collapse code' }}
+        </button>
       </div>
     </div>
   </div>
@@ -88,7 +85,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.card {
+.prose-pre-card {
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
@@ -97,14 +94,14 @@ onUnmounted(() => {
   margin: 1em 0;
 }
 
-.no-header {
+.prose-pre-card[data-header='false'] {
   border-style: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   margin: 0;
 }
 
-.card-header {
+.prose-pre-card > [name='header'] {
   display: flex;
   padding: 0.75rem;
   border-bottom: 1px solid var(--mdc-border);
@@ -112,24 +109,24 @@ onUnmounted(() => {
   line-height: 1.25rem;
 }
 
-.icon {
+.prose-pre-card .iconify {
   align-self: center;
   margin-right: 0.375rem;
 }
 
-.copy-btn {
+.prose-pre-card [name='copy-btn'] {
   margin-left: auto;
   margin-right: 0.25rem;
 }
 
-.absolute-copy-btn {
+.prose-pre-card [name='absolute-copy-btn'] {
   position: absolute;
   z-index: 10;
   top: 0.75rem;
   right: 0.5rem;
 }
 
-.absolute-language {
+.prose-pre-card [name='absolute-language'] {
   position: absolute;
   z-index: 5;
   text-transform: uppercase;
@@ -139,51 +136,44 @@ onUnmounted(() => {
   color: #ccca;
 }
 
-.card-body {
+.prose-pre-card [name='body'] {
   background-color: var(--mdc-muted-30);
 }
 
-.code-wrapper {
+.prose-pre-card [name='code-wrapper'] {
   overflow-x: auto;
   font-size: 14px;
   line-height: 1.25rem;
   position: relative;
 }
 
-.inline-copy :deep(.line) {
+.prose-pre-card [name='code-wrapper'] [data-inline-copy='true'] :deep(.line) {
   padding-right: 2.75rem;
 }
 
-.no-language {
+.prose-pre-card [name='code-wrapper'] [data-no-language='true'] {
   padding-left: 0.75rem;
 }
 
-.collapse-button-wrapper {
-  width: 100%;
+.prose-pre-card [name='collapse-button'] {
   position: absolute;
   bottom: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.collapse-button-wrapper[data-collapsed='false'] {
-  display: none;
-}
-
-.code-wrapper:hover .collapse-button-wrapper {
-  display: flex;
-}
-
-.collapse-button {
+  left: 50%;
+  transform: translateX(-50%);
   border: 1px solid var(--mdc-border);
   padding: 2px 5px;
   border-radius: 4px;
   background: var(--mdc-muted);
   color: var(--mdc-foreground);
   cursor: pointer;
-  pointer-events: auto;
+}
+
+.prose-pre-card [name='collapse-button'][data-collapsed='false'] {
+  display: none;
+}
+
+.prose-pre-card [name='code-wrapper']:hover > [name='collapse-button'] {
+  display: flex;
 }
 </style>
 
@@ -240,12 +230,12 @@ onUnmounted(() => {
 }
 
 /* disable language-md line diff  */
-.language-md.prose-pre code .line.diff {
+.prose-pre.language-md code .line.diff {
   background-color: inherit !important;
   opacity: inherit !important;
 }
 
-.language-md.prose-pre code .line.diff::before {
+.prose-pre.language-md code .line.diff::before {
   content: none !important;
 }
 </style>
