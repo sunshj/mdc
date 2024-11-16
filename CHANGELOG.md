@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.14
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.13...v0.1.14)
+
+### 💅 Refactors
+
+- **components:** Update class names and structure for consistency ([e865b7d](https://github.com/sunshj/mdc/commit/e865b7d))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.13
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.12...v0.1.13)
