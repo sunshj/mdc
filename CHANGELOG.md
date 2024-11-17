@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.16...v0.2.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Enable icon.clientBundle ([33602ea](https://github.com/sunshj/mdc/commit/33602ea))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Enable icon.clientBundle ([33602ea](https://github.com/sunshj/mdc/commit/33602ea))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.16
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.15...v0.1.16)
