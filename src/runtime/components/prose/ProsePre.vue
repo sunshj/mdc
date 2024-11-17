@@ -1,7 +1,7 @@
 <template>
   <div :data-header="props.showHeader" class="prose-pre-card">
     <div v-if="props.showHeader && props.filename" name="header">
-      <SmartIcon v-if="icon" :name="icon" class="icon" />
+      <Icon v-if="icon" :name="icon" />
       {{ props.filename }}
       <CodeCopy :code="props.code" name="copy-btn" />
     </div>

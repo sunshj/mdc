@@ -53,3 +53,7 @@ export const defaultMdcpConfig = {
     foldHeight: 300
   }
 }
+
+export function getClientBundleIcons(codeIconMap: Record<string, string>): string[] {
+  return [...['lucide:copy', 'lucide:check'], ...new Set(Object.values(codeIconMap))]
+}

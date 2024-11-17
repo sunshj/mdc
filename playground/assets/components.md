@@ -430,8 +430,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   ```vue [components/global/ColorModeButton.vue]
   <template>
     <button class="color-mode-button" @click="$colorMode.preference = next()">
-      <SmartIcon v-if="$colorMode.preference === 'light'" :size="24" name="lucide:sun" />
-      <SmartIcon v-else-if="$colorMode.preference === 'dark'" :size="24" name="lucide:moon" />
+      <Icon v-if="$colorMode.preference === 'light'" :size="24" name="lucide:sun" />
+      <Icon v-else-if="$colorMode.preference === 'dark'" :size="24" name="lucide:moon" />
     </button>
   </template>
 

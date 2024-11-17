@@ -7,7 +7,7 @@ import {
 } from '@nuxt/kit'
 import { defu } from 'defu'
 import { name, version } from '../package.json'
-import { defaultMdcpConfig } from './runtime/config'
+import { defaultMdcpConfig, getClientBundleIcons } from './runtime/config'
 
 export interface ModuleOptions {}
 
@@ -35,6 +35,14 @@ export default defineNuxtModule<ModuleOptions>({
 
     // add to app config
     nuxt.options.appConfig.mdcp = defu(defaultMdcpConfig, nuxt.options.appConfig.mdcp || {})
+
+    // icon config
+    nuxt.options.icon = defu(nuxt.options.icon, {
+      clientBundle: {
+        scan: true,
+        icons: getClientBundleIcons(nuxt.options.appConfig.mdcp.codeIconMap)
+      }
+    })
 
     // css
     nuxt.options.css.unshift(resolve(runtimeDir, 'theme.css'))

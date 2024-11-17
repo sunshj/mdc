@@ -12,7 +12,7 @@
           }"
           @click="activeTabIndex = i"
         >
-          <SmartIcon v-if="icon(slot?.props!)" :name="icon(slot?.props!)!" />
+          <Icon v-if="icon(slot?.props!)" :name="icon(slot?.props!)!" />
           {{ label(slot.props!) }}
         </div>
 
