@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.16
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.1.15...v0.1.16)
+
+### 🏡 Chore
+
+- Update deps ([176e2f6](https://github.com/sunshj/mdc/commit/176e2f6))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.1.15
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.14...v0.1.15)
