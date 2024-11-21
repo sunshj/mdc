@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.2.1
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.2.0...v0.2.1)
+
+### 🎨 Styles
+
+- **prose-pre:** Fix line diff symbols and adjust positioning ([be3e3d8](https://github.com/sunshj/mdc/commit/be3e3d8))
+
+### ❤️ Contributors
+
+- Sunshj
+
 ## v0.2.0
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.1.16...v0.2.0)
