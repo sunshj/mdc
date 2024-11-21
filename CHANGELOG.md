@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.2.2
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.2.1...v0.2.2)
+
+### 💅 Refactors
+
+- **playground:** Reorganize files and update nuxt config, fix nuxt4 typecheck error ([184e823](https://github.com/sunshj/mdc/commit/184e823))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.2.1
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.2.0...v0.2.1)
