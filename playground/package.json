@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "nuxi dev --host",
     "build": "nuxi build",
-    "generate": "nuxi generate"
+    "generate": "nuxi generate",
+    "typecheck": "nuxi typecheck"
   },
   "dependencies": {
     "@nuxtjs/color-mode": "^3.5.2",

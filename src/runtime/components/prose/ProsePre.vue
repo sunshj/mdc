@@ -65,9 +65,9 @@ const collapsed = toRef(codeBlock.enableFold)
 const codeBlockMaxHeight = computed(() => (collapsed.value ? `${codeBlock.foldHeight}px` : 'auto'))
 const collapseButtonVisible = ref(false)
 
-const observer = useIntersectionObserver(preRef, ([{ isIntersecting, target }]) => {
-  if (isIntersecting && codeBlock.enableFold) {
-    collapseButtonVisible.value = target.scrollHeight > codeBlock.foldHeight
+const observer = useIntersectionObserver(preRef, ([entry]) => {
+  if (entry?.isIntersecting && entry?.target && codeBlock.enableFold) {
+    collapseButtonVisible.value = entry.target.scrollHeight > codeBlock.foldHeight
   } else {
     collapseButtonVisible.value = false
   }

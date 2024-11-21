@@ -46,14 +46,28 @@ export const defaultCodeFileIconMap = {
   bash: 'vscode-icons:file-type-shell'
 }
 
+export interface MdcpConfig {
+  codeIconMap?: Record<string, string>
+  codeBlock?: {
+    enableFold?: boolean
+    foldHeight?: number
+  }
+}
+
 export const defaultMdcpConfig = {
   codeIconMap: defaultCodeFileIconMap,
   codeBlock: {
     enableFold: true,
     foldHeight: 300
   }
-}
+} satisfies MdcpConfig
 
 export function getClientBundleIcons(codeIconMap: Record<string, string>): string[] {
   return [...['lucide:copy', 'lucide:check'], ...new Set(Object.values(codeIconMap))]
+}
+
+declare module 'nuxt/schema' {
+  interface AppConfigInput {
+    mdcp?: MdcpConfig
+  }
 }
