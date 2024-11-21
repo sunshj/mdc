@@ -216,17 +216,17 @@ onUnmounted(() => {
 }
 
 .prose-pre code .line.diff.remove::before {
-  content: '－';
+  content: '-';
   color: #c23a3a;
   position: absolute;
-  left: 5px;
+  left: 4px;
 }
 
 .prose-pre code .line.diff.add::before {
-  content: '＋';
+  content: '+';
   color: #23b73c;
   position: absolute;
-  left: 5px;
+  left: 4px;
 }
 
 /* disable language-md line diff  */

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <MDC v-if="data" :value="data">
+    <MDC :value="exampleMd">
       <template #default="{ body, toc }">
         <div class="toc">
           <div v-if="toc.links?.length" class="toc-links">
@@ -23,9 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import exampleMdUrl from '~/assets/example.md?url'
-
-const { data } = useFetch(exampleMdUrl, { server: false })
+import exampleMd from '~/assets/example.md?raw'
 
 function flattenTree(tree: any[]): any[] {
   return tree.flatMap(node => [node, ...flattenTree(node.children ?? [])])

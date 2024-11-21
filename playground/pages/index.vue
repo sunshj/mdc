@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <MDC v-if="data" :value="data">
+    <MDC :value="componentsMd">
       <template #default="{ body, toc }">
         <div class="toc">
           <div v-if="toc.links?.length" class="toc-links">
@@ -16,9 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import componentsMdUrl from '~/assets/components.md?url'
-
-const { data } = useFetch(componentsMdUrl, { server: false })
+import componentsMd from '~/assets/components.md?raw'
 </script>
 
 <style scoped>
