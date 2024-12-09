@@ -1,10 +1,4 @@
-import {
-  addComponentsDir,
-  addImports,
-  createResolver,
-  defineNuxtModule,
-  installModule
-} from '@nuxt/kit'
+import { addComponentsDir, createResolver, defineNuxtModule, installModule } from '@nuxt/kit'
 import { defu } from 'defu'
 import { name, version } from '../package.json'
 import { defaultMdcpConfig, getClientBundleIcons } from './runtime/config'
@@ -22,7 +16,7 @@ export default defineNuxtModule<ModuleOptions>({
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve('./runtime')
 
-    // default mdc config
+    // default @nuxtjs/mdc config
     nuxt.options.mdc = defu(nuxt.options.mdc, {
       highlight: {
         theme: {
@@ -36,7 +30,8 @@ export default defineNuxtModule<ModuleOptions>({
     // add to app config
     nuxt.options.appConfig.mdcp = defu(defaultMdcpConfig, nuxt.options.appConfig.mdcp || {})
 
-    // icon config
+    // default @nuxt/icon config
+    // @ts-ignore
     nuxt.options.icon = defu(nuxt.options.icon, {
       clientBundle: {
         scan: true,
@@ -46,14 +41,6 @@ export default defineNuxtModule<ModuleOptions>({
 
     // css
     nuxt.options.css.unshift(resolve(runtimeDir, 'theme.css'))
-
-    // composables
-    addImports([
-      {
-        name: 'useMdcpConfig',
-        from: resolve(runtimeDir, 'composables', 'mdcp-config')
-      }
-    ])
 
     // components
     addComponentsDir({
