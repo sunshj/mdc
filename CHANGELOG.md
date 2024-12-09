@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.2.3
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.2.2...v0.2.3)
+
+### 🎨 Styles
+
+- Improve ProseHr & ProsePre style ([58837f1](https://github.com/sunshj/mdc/commit/58837f1))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.2.2
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.2.1...v0.2.2)
