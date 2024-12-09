@@ -151,8 +151,9 @@ onUnmounted(() => {
   padding-right: 2.75rem;
 }
 
-.prose-pre-card [name='code-wrapper'][data-no-language='true'] {
+.prose-pre-card [name='code-wrapper'][data-no-language='true'] > .prose-pre {
   padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .prose-pre-card [name='collapse-button'] {
