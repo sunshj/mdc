@@ -48,7 +48,6 @@
     "@iconify-json/lucide": "^1.2.15",
     "@iconify-json/vscode-icons": "^1.2.2",
     "@nuxt/kit": "^3.14.159",
-    "@vueuse/core": "^11.2.0",
     "defu": "^6.1.4"
   },
   "devDependencies": {
@@ -60,6 +59,7 @@
     "@sunshj/eslint-config": "^2.1.2",
     "@sunshj/prettier-config": "^1.0.2",
     "@types/node": "latest",
+    "@vueuse/core": "^11.2.0",
     "changelogen": "^0.5.7",
     "eslint": "^9.15.0",
     "lint-staged": "15",

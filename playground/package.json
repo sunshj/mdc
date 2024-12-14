@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@nuxtjs/color-mode": "^3.5.2",
-    "@sunshj/mdc": "workspace:*"
+    "@sunshj/mdc": "workspace:*",
+    "@vueuse/nuxt": "^12.0.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.6.0"

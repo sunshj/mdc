@@ -24,8 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import { useEventBus } from '@vueuse/core'
-
 const links = [
   {
     name: 'index',

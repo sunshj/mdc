@@ -4,15 +4,16 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
-  modules: ['@sunshj/mdc', '@nuxtjs/color-mode'],
+  modules: [
+    '@nuxtjs/color-mode',
+    '@vueuse/nuxt',
+    '@sunshj/mdc',
+    '@nuxtjs/mdc',
+    '@nuxt/image',
+    '@nuxt/icon'
+  ],
   colorMode: {
     classSuffix: ''
-  },
-
-  icon: {
-    clientBundle: {
-      scan: true
-    }
   },
 
   router: {

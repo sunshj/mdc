@@ -16,6 +16,9 @@ export default defineNuxtModule<ModuleOptions>({
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve('./runtime')
 
+    // add to appConfig
+    nuxt.options.appConfig.mdcp = defu(defaultMdcpConfig, nuxt.options.appConfig.mdcp || {})
+
     // default @nuxtjs/mdc config
     nuxt.options.mdc = defu(nuxt.options.mdc, {
       highlight: {
@@ -27,11 +30,7 @@ export default defineNuxtModule<ModuleOptions>({
       keepComments: true
     })
 
-    // add to app config
-    nuxt.options.appConfig.mdcp = defu(defaultMdcpConfig, nuxt.options.appConfig.mdcp || {})
-
     // default @nuxt/icon config
-    // @ts-ignore
     nuxt.options.icon = defu(nuxt.options.icon, {
       clientBundle: {
         scan: true,
@@ -49,7 +48,8 @@ export default defineNuxtModule<ModuleOptions>({
       pathPrefix: false
     })
 
-    // modules
+    // install modules
+    await installModule('@vueuse/nuxt')
     await installModule('@nuxtjs/mdc')
     await installModule('@nuxt/image')
     await installModule('@nuxt/icon')

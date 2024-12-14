@@ -28,6 +28,7 @@
           name="collapse-button"
           @click="collapsed = !collapsed"
         >
+          <Icon :name="collapsed ? 'lucide:chevron-down' : 'lucide:chevron-up'" />
           {{ collapsed ? 'Expand code' : 'Collapse code' }}
         </button>
       </div>
@@ -36,8 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { useIntersectionObserver } from '@vueuse/core'
-import { computed, onUnmounted, ref, toRef } from '#imports'
+import { computed, onUnmounted, ref, toRef, useIntersectionObserver } from '#imports'
 import { useMdcpConfig } from '../../composables/mdcp-config'
 import type { BuiltinLanguage } from 'shiki'
 
