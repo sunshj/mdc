@@ -13,5 +13,6 @@
   ],
   "nuxtr.defaultPackageManager": "pnpm",
   "nuxtr.monorepoMode.DirectoryName": "playground",
-  "nuxtr.piniaFiles.defaultTemplate": "setup"
+  "nuxtr.piniaFiles.defaultTemplate": "setup",
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

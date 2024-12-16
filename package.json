@@ -44,6 +44,9 @@
     "lint:fix": "eslint . --fix --cache",
     "format": "prettier . --write"
   },
+  "peerDependencies": {
+    "@vueuse/core": "^11.0.0"
+  },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.15",
     "@iconify-json/vscode-icons": "^1.2.2",

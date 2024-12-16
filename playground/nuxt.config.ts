@@ -5,15 +5,21 @@ export default defineNuxtConfig({
     compatibilityVersion: 4
   },
   modules: [
-    '@nuxtjs/color-mode',
-    '@vueuse/nuxt',
-    '@sunshj/mdc',
-    '@nuxtjs/mdc',
     '@nuxt/image',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    '../src/module',
+    '@nuxtjs/mdc',
+    '@vueuse/nuxt',
+    '@nuxtjs/color-mode'
   ],
   colorMode: {
     classSuffix: ''
+  },
+
+  vite: {
+    optimizeDeps: {
+      include: ['extend', 'debug']
+    }
   },
 
   router: {

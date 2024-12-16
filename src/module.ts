@@ -49,7 +49,6 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     // install modules
-    await installModule('@vueuse/nuxt')
     await installModule('@nuxtjs/mdc')
     await installModule('@nuxt/image')
     await installModule('@nuxt/icon')
