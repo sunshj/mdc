@@ -408,12 +408,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   ::div{label="Preview" style="padding:5px 10px"}
     :smart-icon{name="lucide:sun"}
     :smart-icon{name="lucide:moon" size="24"}
-    :smart-icon{name="https://me.sunshj.top/images/favicon.png" size="32"}
+    :smart-icon{name="https://sunshj.top/images/avatar.png" size="32"}
   ::
   ```mdc [Code]
   :smart-icon{name="lucide:sun"}
   :smart-icon{name="lucide:moon" size="24"}
-  :smart-icon{name="https://me.sunshj.top/images/favicon.png" size="32"}
+  :smart-icon{name="https://sunshj.top/images/avatar.png" size="32"}
   ```
 
 ::

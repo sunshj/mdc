@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { useClipboard, useEventBus, whenever } from '@vueuse/core'
+import { useClipboard, useEventBus, whenever } from '#imports'
 
 const props = defineProps<{
   code: string

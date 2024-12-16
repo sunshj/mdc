@@ -16,8 +16,9 @@ Find and replace all on all files (CMD+SHIFT+F):
 
 Prose components for Nuxt MDC.
 
-- [✨ &nbsp;Release Notes](/CHANGELOG.md)
+- [✨ Release Notes](/CHANGELOG.md)
 - [🏀 Online playground](https://stackblitz.com/~/github.com/sunshj/mdc?file=playground/app.vue)
+- [🌈 Preview](https://sunshj.top/articles/mdc-support)
 
 ## Quick Setup
 

@@ -28,6 +28,7 @@
           name="collapse-button"
           @click="collapsed = !collapsed"
         >
+          <Icon :size="16" :name="collapsed ? 'lucide:chevron-down' : 'lucide:chevron-up'" />
           {{ collapsed ? 'Expand code' : 'Collapse code' }}
         </button>
       </div>
@@ -36,8 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { useIntersectionObserver } from '@vueuse/core'
-import { computed, onUnmounted, ref, toRef } from '#imports'
+import { computed, onUnmounted, ref, toRef, useIntersectionObserver } from '#imports'
 import { useMdcpConfig } from '../../composables/mdcp-config'
 import type { BuiltinLanguage } from 'shiki'
 
@@ -164,9 +164,14 @@ onUnmounted(() => {
   border: 1px solid var(--mdc-border);
   padding: 2px 5px;
   border-radius: 4px;
+  display: flex;
   background: var(--mdc-muted);
   color: var(--mdc-foreground);
   cursor: pointer;
+}
+
+.prose-pre-card [name='collapse-button']:hover {
+  outline: 2px solid var(--mdc-muted-foreground);
 }
 
 .prose-pre-card [name='collapse-button'][data-collapsed='false'] {
