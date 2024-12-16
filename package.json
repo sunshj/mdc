@@ -1,6 +1,6 @@
 {
   "name": "@sunshj/mdc",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Prose components for Nuxt MDC.",
   "type": "module",
   "license": "MIT",

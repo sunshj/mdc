@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.1
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.3.0...v0.3.1)
+
+### 🏡 Chore
+
+- Fix deps and remove `SmartIcon` ([fc040f5](https://github.com/sunshj/mdc/commit/fc040f5))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.3.0
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.2.3...v0.3.0)
