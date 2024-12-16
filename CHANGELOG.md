@@ -1,6 +1,39 @@
 # Changelog
 
 
+## v0.3.0
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.2.3...v0.3.0)
+
+### 🚀 Enhancements
+
+- ⚠️  V0.3.0 will be released soon ([7592afd](https://github.com/sunshj/mdc/commit/7592afd))
+
+### 🩹 Fixes
+
+- Update dependencies and fix vulnerabilities ([b29d2d9](https://github.com/sunshj/mdc/commit/b29d2d9))
+
+### 💅 Refactors
+
+- Move deps to devDeps ([a86753b](https://github.com/sunshj/mdc/commit/a86753b))
+
+### 📖 Documentation
+
+- Update README links ([78ba86f](https://github.com/sunshj/mdc/commit/78ba86f))
+- Update dead links ([61cbe22](https://github.com/sunshj/mdc/commit/61cbe22))
+
+### 🏡 Chore
+
+- Update deps ([aff25a9](https://github.com/sunshj/mdc/commit/aff25a9))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  V0.3.0 will be released soon ([7592afd](https://github.com/sunshj/mdc/commit/7592afd))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.2.3
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.2.2...v0.2.3)
