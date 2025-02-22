@@ -412,16 +412,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
   ```vue [components/global/ColorModeButton.vue]
   <template>
-    <button class="color-mode-button" @click="$colorMode.preference = next()">
-      <Icon v-if="$colorMode.preference === 'light'" :size="24" name="lucide:sun" />
-      <Icon v-else-if="$colorMode.preference === 'dark'" :size="24" name="lucide:moon" />
+    <button class="color-mode-button" @click="colorMode.preference = next()">
+      <Icon v-if="colorMode.preference === 'light'" :size="24" name="lucide:sun" />
+      <Icon v-else-if="colorMode.preference === 'dark'" :size="24" name="lucide:moon" />
     </button>
   </template>
 
   <script setup lang="ts">
   import { useCycleList } from '@vueuse/core'
 
-  const { next } = useCycleList(['light', 'dark'])
+  const colorMode = useColorMode()
+
+  const { next } = useCycleList(['light', 'dark'], {
+    initialValue: colorMode.preference
+  })
   </script>
 
   <style scoped>

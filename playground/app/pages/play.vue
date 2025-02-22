@@ -44,13 +44,13 @@ README.md
 
 const output = ref<Array<{ id: number; value: string }>>([])
 
-function send() {
+const send = useDebounceFn(() => {
   if (!input.value.trim()) return
   output.value.unshift({
     id: Date.now(),
     value: input.value
   })
-}
+}, 350)
 
 function clear() {
   input.value = ''
