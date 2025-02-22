@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.3.2
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.3.1...v0.3.2)
+
+### 🚀 Enhancements
+
+- **runtime:** Refactor code and remove peer dependency ([072fb29](https://github.com/sunshj/mdc/commit/072fb29))
+
+### 🏡 Chore
+
+- Update deps ([46af93a](https://github.com/sunshj/mdc/commit/46af93a))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.3.1
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.3.0...v0.3.1)
