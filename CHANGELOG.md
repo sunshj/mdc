@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.3.3
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.3.2...v0.3.3)
+
+### 🩹 Fixes
+
+- Icons clientBundle ([df05b13](https://github.com/sunshj/mdc/commit/df05b13))
+
+### 🏡 Chore
+
+- Lint fix ([b60c415](https://github.com/sunshj/mdc/commit/b60c415))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.3.2
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.3.1...v0.3.2)
