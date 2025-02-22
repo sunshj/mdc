@@ -5,9 +5,9 @@ export default defineNuxtConfig({
     compatibilityVersion: 4
   },
   modules: [
+    '../src/module',
     '@nuxt/image',
     '@nuxt/icon',
-    '../src/module',
     '@nuxtjs/mdc',
     '@vueuse/nuxt',
     '@nuxtjs/color-mode'

@@ -1,9 +1,9 @@
 import { addComponentsDir, createResolver, defineNuxtModule, installModule } from '@nuxt/kit'
 import { defu } from 'defu'
 import { name, version } from '../package.json'
-import { defaultMdcpConfig, getClientBundleIcons } from './runtime/config'
+import { defaultMdcpConfig, internalUsedIcons, type MdcpConfig } from './runtime/config'
 
-export interface ModuleOptions {}
+export type ModuleOptions = MdcpConfig
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -11,13 +11,13 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'mdcp',
     version
   },
-  defaults: {},
-  async setup(_, nuxt) {
+  defaults: defaultMdcpConfig,
+  async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve('./runtime')
 
     // add to appConfig
-    nuxt.options.appConfig.mdcp = defu(defaultMdcpConfig, nuxt.options.appConfig.mdcp || {})
+    nuxt.options.appConfig.mdcp = defu(nuxt.options.appConfig.mdcp || {}, options)
 
     // default @nuxtjs/mdc config
     nuxt.options.mdc = defu(nuxt.options.mdc, {
@@ -33,8 +33,10 @@ export default defineNuxtModule<ModuleOptions>({
     // default @nuxt/icon config
     nuxt.options.icon = defu(nuxt.options.icon, {
       clientBundle: {
-        scan: true,
-        icons: getClientBundleIcons(nuxt.options.appConfig.mdcp.codeIconMap)
+        scan: {
+          globInclude: ['**/*.{vue,jsx,tsx,md,mdc,mdx}', '**/app.config.ts']
+        },
+        icons: internalUsedIcons
       }
     })
 

@@ -62,9 +62,13 @@ export const defaultMdcpConfig = {
   }
 } satisfies MdcpConfig
 
-export function getClientBundleIcons(codeIconMap: Record<string, string>): string[] {
-  return ['lucide:copy', 'lucide:check', ...new Set(Object.values(codeIconMap))]
-}
+export const internalUsedIcons = [
+  'lucide:chevron-down',
+  'lucide:chevron-up',
+  'lucide:copy',
+  'lucide:check',
+  ...new Set(Object.values(defaultCodeIconMap))
+]
 
 declare module '@nuxt/schema' {
   interface AppConfigInput {

@@ -6,6 +6,7 @@
     "dev": "nuxi dev --host",
     "build": "nuxi build",
     "generate": "nuxi generate",
+    "preview": "nuxi preview",
     "typecheck": "nuxi typecheck"
   },
   "dependencies": {
