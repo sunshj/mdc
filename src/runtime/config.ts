@@ -1,4 +1,4 @@
-export const defaultCodeFileIconMap = {
+export const defaultCodeIconMap = {
   'package.json': 'vscode-icons:file-type-node',
   'tsconfig.json': 'vscode-icons:file-type-tsconfig',
   '.npmrc': 'vscode-icons:file-type-npm',
@@ -55,7 +55,7 @@ export interface MdcpConfig {
 }
 
 export const defaultMdcpConfig = {
-  codeIconMap: defaultCodeFileIconMap,
+  codeIconMap: defaultCodeIconMap,
   codeBlock: {
     enableFold: true,
     foldHeight: 300
@@ -63,10 +63,10 @@ export const defaultMdcpConfig = {
 } satisfies MdcpConfig
 
 export function getClientBundleIcons(codeIconMap: Record<string, string>): string[] {
-  return [...['lucide:copy', 'lucide:check'], ...new Set(Object.values(codeIconMap))]
+  return ['lucide:copy', 'lucide:check', ...new Set(Object.values(codeIconMap))]
 }
 
-declare module 'nuxt/schema' {
+declare module '@nuxt/schema' {
   interface AppConfigInput {
     mdcp?: MdcpConfig
   }

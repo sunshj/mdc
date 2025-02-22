@@ -32,8 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, useSlots } from '#imports'
-import { useMdcpConfig } from '../composables/mdcp-config'
+import { objectEntries } from '@vueuse/core'
+import { computed, ref, useAppConfig, useSlots } from '#imports'
 
 type SlotVNodeProps = {
   code?: string
@@ -50,13 +50,14 @@ const activeTabIndex = ref(0)
 
 const code = computed(() => defaultSlots.value[activeTabIndex.value]?.props?.code)
 
-const { icons } = useMdcpConfig()
+const { mdcp } = useAppConfig()
+const icons = computed(() => new Map<string, string>(objectEntries(mdcp.codeIconMap)))
 
 function icon(props: SlotVNodeProps) {
   return (
     props?.icon ||
-    icons.get(props?.filename?.toLowerCase() ?? '') ||
-    icons.get(props?.language ?? '')
+    icons.value.get(props?.filename?.toLowerCase() ?? '') ||
+    icons.value.get(props?.language ?? '')
   )
 }
 

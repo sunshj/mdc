@@ -37,8 +37,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onUnmounted, ref, toRef, useIntersectionObserver } from '#imports'
-import { useMdcpConfig } from '../../composables/mdcp-config'
+import { objectEntries } from '@vueuse/core'
+import { computed, onUnmounted, ref, toRef, useAppConfig, useIntersectionObserver } from '#imports'
 import type { BuiltinLanguage } from 'shiki'
 
 const props = withDefaults(
@@ -58,23 +58,26 @@ const props = withDefaults(
   }
 )
 
-const { icons, codeBlock } = useMdcpConfig()
+const { mdcp } = useAppConfig()
+const icons = computed(() => new Map<string, string>(objectEntries(mdcp.codeIconMap)))
 
 const preRef = ref<HTMLPreElement>()
-const collapsed = toRef(codeBlock.enableFold)
-const codeBlockMaxHeight = computed(() => (collapsed.value ? `${codeBlock.foldHeight}px` : 'auto'))
+const collapsed = toRef(mdcp.codeBlock.enableFold)
+const codeBlockMaxHeight = computed(() =>
+  collapsed.value ? `${mdcp.codeBlock.foldHeight}px` : 'auto'
+)
 const collapseButtonVisible = ref(false)
 
 const observer = useIntersectionObserver(preRef, ([entry]) => {
-  if (entry?.isIntersecting && entry?.target && codeBlock.enableFold) {
-    collapseButtonVisible.value = entry.target.scrollHeight > codeBlock.foldHeight
+  if (entry?.isIntersecting && entry?.target && mdcp.codeBlock.enableFold) {
+    collapseButtonVisible.value = entry.target.scrollHeight > mdcp.codeBlock.foldHeight
   } else {
     collapseButtonVisible.value = false
   }
 })
 
 const icon = computed(
-  () => icons.get(props.filename?.toLowerCase()) || icons.get(props.language ?? '')
+  () => icons.value.get(props.filename?.toLowerCase()) || icons.value.get(props.language ?? '')
 )
 
 const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
