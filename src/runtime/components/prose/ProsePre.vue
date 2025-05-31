@@ -119,7 +119,6 @@ onUnmounted(() => {
 
 .prose-pre-card [name='copy-btn'] {
   margin-left: auto;
-  margin-right: 0.25rem;
 }
 
 .prose-pre-card [name='absolute-copy-btn'] {

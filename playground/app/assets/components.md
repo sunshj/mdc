@@ -151,6 +151,24 @@ export default () => {
       bun run dev
       ```
     ::
+
+    ::code-group
+      ```js [test-long-filename.js]
+        console.log(1)
+      ```
+
+      ```js [test-long-filename.js]
+        console.log(1)
+      ```
+
+      ```js [test-long-filename.js]
+        console.log(1)
+      ```
+
+      ```js [test-long-filename.js]
+        console.log(1)
+      ```
+    ::
   ::
 
   ```mdc [Code]

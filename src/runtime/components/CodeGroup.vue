@@ -2,20 +2,21 @@
   <div class="code-group-card">
     <div class="code-group">
       <div class="code-group-tabs">
-        <div
-          v-for="(slot, i) in defaultSlots"
-          :key="`${i}-${label(slot.props!)}`"
-          :value="label(slot.props!)"
-          :class="{
-            'code-group-tab': true,
-            active: activeTabIndex === i
-          }"
-          @click="activeTabIndex = i"
-        >
-          <Icon v-if="icon(slot?.props!)" :name="icon(slot?.props!)!" />
-          {{ label(slot.props!) }}
+        <div name="files">
+          <div
+            v-for="(slot, i) in defaultSlots"
+            :key="`${i}-${label(slot.props!)}`"
+            :value="label(slot.props!)"
+            :class="{
+              'code-group-tab': true,
+              active: activeTabIndex === i
+            }"
+            @click="activeTabIndex = i"
+          >
+            <Icon v-if="icon(slot?.props!)" :name="icon(slot?.props!)!" />
+            {{ label(slot.props!) }}
+          </div>
         </div>
-
         <CodeCopy v-if="code" :code name="copy-btn" />
       </div>
     </div>
@@ -89,13 +90,20 @@ function label(props: SlotVNodeProps) {
   gap: 4px;
   background-color: var(--mdc-background);
   border-bottom: 1px solid var(--mdc-border);
-  padding: 5px 12px 5px 5px;
+  padding: 5px;
+  position: relative;
+}
+
+.code-group-tabs [name='files'] {
+  display: flex;
+  flex: 1;
   overflow-x: auto;
 }
 
 .code-group-tab {
   padding: 5px 10px;
   cursor: pointer;
+  min-width: fit-content;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -105,9 +113,5 @@ function label(props: SlotVNodeProps) {
 .code-group-tab.active {
   background-color: var(--mdc-secondary);
   border-radius: 6px;
-}
-
-.code-group-tabs [name='copy-btn'] {
-  margin-left: auto;
 }
 </style>
