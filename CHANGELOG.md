@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.5
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.3.4...v0.3.5)
+
+### 🎨 Styles
+
+- **components:** Adjust icon sizes and padding in code copy components ([1e4017c](https://github.com/sunshj/mdc/commit/1e4017c))
+
+### ❤️ Contributors
+
+- Sunshj
+
 ## v0.3.4
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.3.3...v0.3.4)
