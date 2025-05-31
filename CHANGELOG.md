@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.6
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.3.5...v0.3.6)
+
+### 🎨 Styles
+
+- **ProsePre:** Adjust copy button position from 12px to 7px from top ([1fef2f8](https://github.com/sunshj/mdc/commit/1fef2f8))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.3.5
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.3.4...v0.3.5)
