@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.3.4
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.3.3...v0.3.4)
+
+### 🚀 Enhancements
+
+- **components:** Improve code group and copy button styling ([b82d357](https://github.com/sunshj/mdc/commit/b82d357))
+- **CodeGroup:** Enhance tab navigation with smooth scrolling ([16b72e3](https://github.com/sunshj/mdc/commit/16b72e3))
+
+### 🎨 Styles
+
+- **prose:** Add overflow-wrap to ProseLi component ([7266e0c](https://github.com/sunshj/mdc/commit/7266e0c))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.3.3
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.3.2...v0.3.3)
