@@ -75,6 +75,10 @@
 ::div{label="Preview" style="padding:5px 10px"}
 
 ```ts
+export default () => console.log('Single Line Code block')
+```
+
+```ts
 export default () => {
   console.log('Code block')
 }

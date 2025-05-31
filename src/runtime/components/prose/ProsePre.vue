@@ -125,7 +125,7 @@ onUnmounted(() => {
 .prose-pre-card [name='absolute-copy-btn'] {
   position: absolute;
   z-index: 10;
-  top: 12px;
+  top: 7px;
   right: 5px;
 }
 
