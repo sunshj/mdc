@@ -2,7 +2,7 @@
   <div :data-header="props.showHeader" class="prose-pre-card">
     <div v-if="props.showHeader && props.filename" name="header">
       <Icon v-if="icon" :name="icon" />
-      {{ props.filename }}
+      <span> {{ props.filename }}</span>
       <CodeCopy :code="props.code" name="copy-btn" />
     </div>
 
@@ -104,9 +104,10 @@ onUnmounted(() => {
   margin: 0;
 }
 
-.prose-pre-card > [name='header'] {
+.prose-pre-card [name='header'] {
   display: flex;
-  padding: 0.75rem;
+  align-items: center;
+  padding: 5px 5px 5px 12px;
   border-bottom: 1px solid var(--mdc-border);
   font-size: 14px;
   line-height: 1.25rem;
@@ -124,8 +125,8 @@ onUnmounted(() => {
 .prose-pre-card [name='absolute-copy-btn'] {
   position: absolute;
   z-index: 10;
-  top: 0.75rem;
-  right: 0.5rem;
+  top: 12px;
+  right: 5px;
 }
 
 .prose-pre-card [name='absolute-language'] {

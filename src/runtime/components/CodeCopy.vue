@@ -1,8 +1,8 @@
 <template>
   <div class="code-copy" @click="copy(props.code)">
     <Transition name="copy-fade" mode="out-in">
-      <Icon v-if="!copied" name="lucide:copy" />
-      <Icon v-else name="lucide:check" />
+      <Icon v-if="!copied" :size="16" name="lucide:copy" />
+      <Icon v-else :size="16" name="lucide:check" />
     </Transition>
   </div>
 </template>
@@ -35,7 +35,7 @@ whenever(copied, () => {
 
 .code-copy {
   display: flex;
-  padding: 8px;
+  padding: 7px;
   border-radius: 4px;
   height: 30px;
   transition: all 0.3s ease;

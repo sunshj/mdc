@@ -433,6 +433,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     <button class="color-mode-button" @click="colorMode.preference = next()">
       <Icon v-if="colorMode.preference === 'light'" :size="24" name="lucide:sun" />
       <Icon v-else-if="colorMode.preference === 'dark'" :size="24" name="lucide:moon" />
+      <Icon v-else :size="24" name="lucide:contrast" />
     </button>
   </template>
 
@@ -441,7 +442,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
   const colorMode = useColorMode()
 
-  const { next } = useCycleList(['light', 'dark'], {
+  const { next } = useCycleList(['system', 'light', 'dark'], {
     initialValue: colorMode.preference
   })
   </script>
