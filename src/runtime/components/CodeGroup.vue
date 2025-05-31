@@ -11,7 +11,7 @@
               'code-group-tab': true,
               active: activeTabIndex === i
             }"
-            @click="activeTabIndex = i"
+            @click="onTabClick($event, i)"
           >
             <Icon v-if="icon(slot?.props!)" :name="icon(slot?.props!)!" />
             {{ label(slot.props!) }}
@@ -48,6 +48,12 @@ type SlotVNodeProps = {
 const defaultSlots = computed(() => useSlots()?.default?.() || [])
 
 const activeTabIndex = ref(0)
+
+function onTabClick(evt: MouseEvent, index: number) {
+  activeTabIndex.value = index
+  const el = evt.target as HTMLDivElement
+  el?.scrollIntoView?.({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+}
 
 const code = computed(() => defaultSlots.value[activeTabIndex.value]?.props?.code)
 

@@ -153,20 +153,20 @@ export default () => {
     ::
 
     ::code-group
-      ```js [test-long-filename.js]
+      ```js [a-longer-file-name-1.js]
         console.log(1)
       ```
 
-      ```js [test-long-filename.js]
-        console.log(1)
+      ```js [a-longer-file-name-2.js]
+        console.log(2)
       ```
 
-      ```js [test-long-filename.js]
-        console.log(1)
+      ```js [a-longer-file-name-3.js]
+        console.log(3)
       ```
 
-      ```js [test-long-filename.js]
-        console.log(1)
+      ```js [a-longer-file-name-4.js]
+        console.log(4)
       ```
     ::
   ::
