@@ -34,14 +34,3 @@ const refinedTarget = computed(() => {
   text-decoration: none !important;
 }
 </style>
-
-<style>
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-</style>
