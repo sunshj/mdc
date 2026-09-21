@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v0.3.7
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.3.6...v0.3.7)
+
+### 🩹 Fixes
+
+- Stop prose components from leaking global styles ([9e66de8](https://github.com/sunshj/mdc/commit/9e66de8))
+- **prose:** Scope remaining global styles to their components ([d554ca0](https://github.com/sunshj/mdc/commit/d554ca0))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+- NamesMT ([@NamesMT](http://github.com/NamesMT))
+
 ## v0.3.6
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.3.5...v0.3.6)
