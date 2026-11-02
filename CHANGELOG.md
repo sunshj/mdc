@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.8
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.3.7...v0.3.8)
+
+### 🚀 Enhancements
+
+- Add Comark streaming support ([a674774](https://github.com/sunshj/mdc/commit/a674774))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.3.7
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.3.6...v0.3.7)
