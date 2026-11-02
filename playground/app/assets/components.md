@@ -44,7 +44,7 @@
   [`InlineCode Link`](https://github.com/sunshj/mdc)
 ::
 
-```md [Code]
+```mdc [Code]
 [Internal Link](/play)
 
 [External Link](https://github.com/sunshj/mdc)
@@ -126,8 +126,8 @@ export default () => {
 
 ```ts [Diff Lines]
 export default () => {
-  console.log('Code blcok') // [!code --]
-  console.log('Code block') // [!code ++]
+  console.log('Code blcok') `// [!code --]`
+  console.log('Code block') `// [!code ++]`
 }
 ```
 ````
@@ -175,7 +175,7 @@ export default () => {
     ::
   ::
 
-  ```mdc [Code]
+  ````mdc [Code]
   ::code-group
     ```bash [npm]
     npm run dev
@@ -193,7 +193,7 @@ export default () => {
     bun run dev
     ```
   ::
-  ```
+  ````
 ::
 
 ### Inline Code
@@ -205,11 +205,11 @@ export default () => {
 `const codeInline: string = 'highlighted code inline'`{lang="ts"}
 ::
 
-```md [Code]
+````mdc [Code]
 `code inline`
 
 `const codeInline: string = 'highlighted code inline'`{lang="ts"}
-```
+````
 
 ::
 

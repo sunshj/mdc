@@ -12,24 +12,21 @@ import { computed, useRuntimeConfig } from '#imports'
 
 const props = defineProps<{ id?: string }>()
 
-const { headings } = useRuntimeConfig().public.mdc
+const anchorLinks = useRuntimeConfig().public.mdc?.headings?.anchorLinks
 
-const generate = computed(
-  () => !!props.id && typeof headings?.anchorLinks === 'object' && !!headings.anchorLinks.h2
-)
+const enabled = typeof anchorLinks === 'object' ? anchorLinks?.h2 : (anchorLinks ?? true)
+const generate = computed(() => !!props.id && !!enabled)
 </script>
 
 <style scoped>
 .prose-h2 {
   scroll-margin: 5rem;
-  letter-spacing: -0.025em;
   text-decoration: none;
 
-  font-size: 1.75em;
-  transition: color 0.2s ease-in-out;
-  margin: 1.75rem 0 0.5em;
-  line-height: 1.25;
-  font-weight: 600;
+  font-size: var(--mdc-h2-size, 1.5em);
+  font-weight: var(--mdc-h2-weight, 700);
+  line-height: 1.33;
+  margin: calc(2em * var(--mdc-heading-spacing, 1)) 0 calc(1em * var(--mdc-heading-spacing, 1));
 }
 
 .prose-h2 > a {

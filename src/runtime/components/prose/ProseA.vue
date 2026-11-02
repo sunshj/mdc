@@ -1,5 +1,12 @@
 <template>
-  <NuxtLink :href="props.href" :target="refinedTarget" :external="props.external" class="prose-a">
+  <span v-if="incomplete" class="prose-a"><slot /></span>
+  <NuxtLink
+    v-else
+    :href="props.href"
+    :target="refinedTarget"
+    :external="props.external"
+    class="prose-a"
+  >
     <slot />
   </NuxtLink>
 </template>
@@ -11,6 +18,9 @@ const props = defineProps<{
   href: string
   external?: boolean
 }>()
+
+// Comark marks unterminated links with a `comark:incomplete-link` placeholder while streaming.
+const incomplete = computed(() => props.href.startsWith('comark:incomplete-'))
 
 const refinedTarget = computed(() => {
   if (props.href.startsWith('/') && !props.href.startsWith('//')) return '_self'

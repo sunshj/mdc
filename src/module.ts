@@ -3,7 +3,16 @@ import { defu } from 'defu'
 import { name, version } from '../package.json'
 import { defaultMdcpConfig, internalUsedIcons, type MdcpConfig } from './runtime/config'
 
-export type ModuleOptions = MdcpConfig
+export type ModuleOptions = MdcpConfig & {
+  /**
+   * @default true
+   */
+  mdc?: boolean
+  /**
+   * @default true
+   */
+  css?: boolean
+}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -11,24 +20,27 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'mdcp',
     version
   },
-  defaults: defaultMdcpConfig,
+  defaults: { ...defaultMdcpConfig, mdc: true, css: true },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve('./runtime')
+    const { mdc = true, css = true, ...config } = options
 
     // add to appConfig
-    nuxt.options.appConfig.mdcp = defu(nuxt.options.appConfig.mdcp || {}, options)
+    nuxt.options.appConfig.mdcp = defu(nuxt.options.appConfig.mdcp || {}, config)
 
-    // default @nuxtjs/mdc config
-    nuxt.options.mdc = defu(nuxt.options.mdc, {
-      highlight: {
-        theme: {
-          default: 'light-plus',
-          dark: 'dark-plus'
-        }
-      },
-      keepComments: true
-    })
+    if (mdc) {
+      // default @nuxtjs/mdc config
+      nuxt.options.mdc = defu(nuxt.options.mdc, {
+        highlight: {
+          theme: {
+            default: 'light-plus',
+            dark: 'dark-plus'
+          }
+        },
+        keepComments: true
+      })
+    }
 
     // default @nuxt/icon config
     nuxt.options.icon = defu(nuxt.options.icon, {
@@ -41,7 +53,9 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     // css
-    nuxt.options.css.unshift(resolve(runtimeDir, 'theme.css'))
+    if (css) {
+      nuxt.options.css.unshift(resolve(runtimeDir, 'theme.css'))
+    }
 
     // components
     addComponentsDir({
@@ -52,7 +66,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     // install modules
     await installModule('@vueuse/nuxt')
-    await installModule('@nuxtjs/mdc')
+    if (mdc) await installModule('@nuxtjs/mdc')
     await installModule('@nuxt/image')
     await installModule('@nuxt/icon')
   }

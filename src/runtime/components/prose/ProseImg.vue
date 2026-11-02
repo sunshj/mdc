@@ -1,5 +1,5 @@
 <template>
-  <span class="prose-img-wrapper">
+  <span v-if="!incomplete" class="prose-img-wrapper">
     <NuxtImg
       :src="refinedSrc"
       :alt="props.alt"
@@ -28,6 +28,9 @@ const props = withDefaults(
 )
 
 const { app } = useRuntimeConfig()
+
+// Comark marks unterminated images with a `comark:incomplete-image` placeholder while streaming.
+const incomplete = computed(() => props.src?.startsWith('comark:incomplete-') ?? false)
 
 const refinedSrc = computed(() => {
   if (props.src?.startsWith('/') && !props.src.startsWith('//')) {

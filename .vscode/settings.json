@@ -14,5 +14,6 @@
   "nuxtr.defaultPackageManager": "pnpm",
   "nuxtr.monorepoMode.DirectoryName": "playground",
   "nuxtr.piniaFiles.defaultTemplate": "setup",
-  "typescript.tsdk": "node_modules\\typescript\\lib"
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "cSpell.words": ["Mdcp"]
 }

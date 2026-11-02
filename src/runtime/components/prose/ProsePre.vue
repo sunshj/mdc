@@ -3,12 +3,12 @@
     <div v-if="props.showHeader && props.filename" name="header">
       <Icon v-if="icon" :name="icon" />
       <span> {{ props.filename }}</span>
-      <CodeCopy :code="props.code" name="copy-btn" />
+      <CodeCopy :code="source()" name="copy-btn" />
     </div>
 
-    <span v-if="!props.filename" name="absolute-copy-btn"><CodeCopy :code="props.code" /></span>
+    <span v-if="!props.filename" name="absolute-copy-btn"><CodeCopy :code="source()" /></span>
 
-    <span v-if="!props.filename && !isSingleLine" name="absolute-language">
+    <span v-if="!props.filename && !isSingleLine()" name="absolute-language">
       {{ props.language }}
     </span>
 
@@ -37,13 +37,23 @@
 </template>
 
 <script setup lang="ts">
-import { objectEntries } from '@vueuse/core'
-import { computed, onUnmounted, ref, toRef, useAppConfig, useIntersectionObserver } from '#imports'
+import { objectEntries, useThrottleFn } from '@vueuse/core'
+import {
+  computed,
+  onUnmounted,
+  onUpdated,
+  ref,
+  toRef,
+  useAppConfig,
+  useIntersectionObserver
+} from '#imports'
+import { vnodeText } from '../../utils/node'
 import type { BuiltinLanguage } from 'shiki'
+import type { VNode } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    code: string
+    code?: string
     language?: BuiltinLanguage
     filename?: string
     showHeader?: boolean
@@ -58,6 +68,13 @@ const props = withDefaults(
   }
 )
 
+const slots = defineSlots<{ default?: () => VNode[] }>()
+
+// Not a computed: slot children change in place while streaming.
+function source() {
+  return props.code ?? vnodeText(slots.default?.())
+}
+
 const { mdcp } = useAppConfig()
 const icons = computed(() => new Map<string, string>(objectEntries(mdcp.codeIconMap)))
 
@@ -68,19 +85,25 @@ const codeBlockMaxHeight = computed(() =>
 )
 const collapseButtonVisible = ref(false)
 
+function refreshCollapseButton() {
+  const el = preRef.value
+  collapseButtonVisible.value =
+    !!el && mdcp.codeBlock.enableFold && el.scrollHeight > mdcp.codeBlock.foldHeight
+}
+
 const observer = useIntersectionObserver(preRef, ([entry]) => {
-  if (entry?.isIntersecting && entry?.target && mdcp.codeBlock.enableFold) {
-    collapseButtonVisible.value = entry.target.scrollHeight > mdcp.codeBlock.foldHeight
-  } else {
-    collapseButtonVisible.value = false
-  }
+  if (entry?.isIntersecting) refreshCollapseButton()
 })
+
+onUpdated(useThrottleFn(refreshCollapseButton, 200))
 
 const icon = computed(
   () => icons.value.get(props.filename?.toLowerCase()) || icons.value.get(props.language ?? '')
 )
 
-const isSingleLine = computed(() => props.code.trim().split('\n').length === 1)
+function isSingleLine() {
+  return source().trim().split('\n').length === 1
+}
 
 onUnmounted(() => {
   observer.stop()

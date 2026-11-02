@@ -12,6 +12,10 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/color-mode'
   ],
+
+  mdcp: {
+    mdc: true
+  },
   colorMode: {
     classSuffix: ''
   },

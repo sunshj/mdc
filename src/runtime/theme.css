@@ -11,17 +11,26 @@
   --mdc-border: hsl(240 5.9% 90%);
 
   --mdc-primary: hsl(240 5.9% 10%);
-  --mdc-primary-foreground: hsl(0 0% 98%);
-
   --mdc-secondary: hsl(240 4.8% 95.9%);
-  --mdc-secondary-foreground: hsl(240 5.9% 10%);
-
-  --mdc-destructive: hsl(0 84.2% 60.2%);
-  --mdc-destructive-foreground: hsl(0 0% 98%);
 
   --mdc-active-link: hsl(221, 100%, 55%);
   --mdc-code-family: Consolas, monospace;
   --mdc-inline-code: hsl(226, 55%, 45%);
+
+  --mdc-prose-line-height: 1.75;
+  --mdc-prose-spacing: 1.25em;
+
+  --mdc-heading-spacing: 1;
+  --mdc-heading-weight: 600;
+
+  --mdc-h1-size: 2.25em;
+  --mdc-h1-weight: 800;
+  --mdc-h2-size: 1.5em;
+  --mdc-h2-weight: 700;
+  --mdc-h3-size: 1.25em;
+  --mdc-h4-size: 1.125em;
+  --mdc-h5-size: 1em;
+  --mdc-h6-size: 0.875em;
 }
 
 .dark {
@@ -37,13 +46,7 @@
   --mdc-border: hsl(240 3.7% 15.9%);
 
   --mdc-primary: hsl(0 0% 98%);
-  --mdc-primary-foreground: hsl(240 5.9% 10%);
-
   --mdc-secondary: hsl(240 3.7% 15.9%);
-  --mdc-secondary-foreground: hsl(0 0% 98%);
-
-  --mdc-destructive: hsl(0 62.8% 30.6%);
-  --mdc-destructive-foreground: hsl(0 0% 98%);
 
   --mdc-inline-code: hsl(234, 100%, 83%);
 }

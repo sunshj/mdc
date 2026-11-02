@@ -1,76 +1,108 @@
-<template>
-  <div class="code-group-card">
-    <div class="code-group">
-      <div class="code-group-tabs">
-        <div name="files">
-          <div
-            v-for="(slot, i) in defaultSlots"
-            :key="`${i}-${label(slot.props!)}`"
-            :value="label(slot.props!)"
-            :class="{
-              'code-group-tab': true,
-              active: activeTabIndex === i
-            }"
-            @click="onTabClick($event, i)"
-          >
-            <Icon v-if="icon(slot?.props!)" :name="icon(slot?.props!)!" />
-            {{ label(slot.props!) }}
-          </div>
-        </div>
-        <CodeCopy v-if="code" :code name="copy-btn" />
-      </div>
-    </div>
-
-    <div
-      v-for="(slot, i) in defaultSlots"
-      v-show="activeTabIndex === i"
-      :key="`${i}${label(slot.props!)}`"
-      :value="label(slot.props!)"
-    >
-      <component :is="slot" :show-header="false" />
-    </div>
-  </div>
-</template>
-
-<script setup lang="ts">
+<script lang="ts">
 import { objectEntries } from '@vueuse/core'
-import { computed, ref, useAppConfig, useSlots } from '#imports'
+import { useAppConfig } from '#imports'
+import { cloneVNode, defineComponent, h, ref, resolveComponent, type VNode } from 'vue'
+import { vnodeText } from '../utils/node'
+import CodeCopy from './CodeCopy.vue'
 
 type SlotVNodeProps = {
   code?: string
   filename?: string
   language?: string
-  showHeader?: boolean
   icon?: string
   label?: string
 } & Record<string, any>
 
-const defaultSlots = computed(() => useSlots()?.default?.() || [])
+// Hand-written render function: no block tree is built, so updates fall back to a full
+// keyed diff. Panels are vnodes owned by the markdown renderer and are reused between
+// renders, which the block optimizer cannot patch safely.
+export default defineComponent({
+  name: 'CodeGroup',
+  setup(_, { slots }) {
+    const activeTabIndex = ref(0)
 
-const activeTabIndex = ref(0)
+    const { mdcp } = useAppConfig()
+    const icons = new Map<string, string>(objectEntries(mdcp.codeIconMap))
 
-function onTabClick(evt: MouseEvent, index: number) {
-  activeTabIndex.value = index
-  const el = evt.target as HTMLDivElement
-  el?.scrollIntoView?.({ behavior: 'smooth', inline: 'center', block: 'nearest' })
-}
+    // Slots are re-read on every render: streamed chunks replace the children in place.
+    function tabs() {
+      return slots.default?.() ?? []
+    }
 
-const code = computed(() => defaultSlots.value[activeTabIndex.value]?.props?.code)
+    function propsOf(tab?: VNode) {
+      return (tab?.props ?? {}) as SlotVNodeProps
+    }
 
-const { mdcp } = useAppConfig()
-const icons = computed(() => new Map<string, string>(objectEntries(mdcp.codeIconMap)))
+    function label(props: SlotVNodeProps) {
+      return props.label || props.filename || ''
+    }
 
-function icon(props: SlotVNodeProps) {
-  return (
-    props?.icon ||
-    icons.value.get(props?.filename?.toLowerCase() ?? '') ||
-    icons.value.get(props?.language ?? '')
-  )
-}
+    function icon(props: SlotVNodeProps) {
+      return (
+        props.icon ||
+        icons.get(props.filename?.toLowerCase() ?? '') ||
+        icons.get(props.language ?? '')
+      )
+    }
 
-function label(props: SlotVNodeProps) {
-  return props?.label || props?.filename
-}
+    function slotCode(tab?: VNode) {
+      return propsOf(tab).code ?? vnodeText(tab)
+    }
+
+    function onTabClick(evt: MouseEvent, index: number) {
+      activeTabIndex.value = index
+      const el = evt.target as HTMLDivElement
+      el?.scrollIntoView?.({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+    }
+
+    return () => {
+      const items = tabs()
+      if (!items.length) return null
+
+      const active = activeTabIndex.value
+      const activeCode = slotCode(items[active])
+      const Icon = resolveComponent('Icon')
+
+      return h('div', { class: 'code-group-card' }, [
+        h('div', { class: 'code-group' }, [
+          h('div', { class: 'code-group-tabs' }, [
+            h(
+              'div',
+              { name: 'files' },
+              items.map((tab, i) => {
+                const props = propsOf(tab)
+                const tabIcon = icon(props)
+                return h(
+                  'div',
+                  {
+                    key: `${i}-${label(props)}`,
+                    value: label(props),
+                    class: { 'code-group-tab': true, active: active === i },
+                    onClick: (evt: MouseEvent) => onTabClick(evt, i)
+                  },
+                  [tabIcon ? h(Icon, { name: tabIcon }) : null, label(props)]
+                )
+              })
+            ),
+            activeCode ? h(CodeCopy, { code: activeCode, name: 'copy-btn' }) : null
+          ])
+        ]),
+        ...items.map((tab, i) =>
+          h(
+            'div',
+            {
+              key: `${i}${label(propsOf(tab))}`,
+              value: label(propsOf(tab)),
+              class: 'code-group-panel',
+              style: { display: active === i ? null : 'none' }
+            },
+            [cloneVNode(tab, { 'show-header': false })]
+          )
+        )
+      ])
+    }
+  }
+})
 </script>
 
 <style scoped>
