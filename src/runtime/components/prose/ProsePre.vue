@@ -13,11 +13,7 @@
     </span>
 
     <div name="body">
-      <div
-        name="code-wrapper"
-        :data-inline-copy="props.showHeader && !props.filename"
-        :data-no-language="!props.language"
-      >
+      <div name="code-wrapper" :data-inline-copy="props.showHeader && !props.filename">
         <pre ref="preRef" class="prose-pre" :class="props.class">
           <slot />
         </pre>
@@ -177,9 +173,14 @@ onUnmounted(() => {
   padding-right: 2.75rem;
 }
 
-.prose-pre-card [name='code-wrapper'][data-no-language='true'] > .prose-pre {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+/* Untokenized code (no language, or a language the highlighter could not load)
+   renders as plain text without .line spans, so it needs the inset on <code>. */
+.prose-pre :deep(code:not(:has(.line))) {
+  padding: 0 1rem;
+}
+
+.prose-pre-card [name='code-wrapper'][data-inline-copy='true'] :deep(code:not(:has(.line))) {
+  padding-right: 2.75rem;
 }
 
 .prose-pre-card [name='collapse-button'] {
