@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.9
+
+[compare changes](https://github.com/sunshj/mdc/compare/v0.3.8...v0.3.9)
+
+### 🩹 Fixes
+
+- **prose:** Adjust untokenized code padding ([737d4ba](https://github.com/sunshj/mdc/commit/737d4ba))
+
+### ❤️ Contributors
+
+- Sunshj ([@sunshj](http://github.com/sunshj))
+
 ## v0.3.8
 
 [compare changes](https://github.com/sunshj/mdc/compare/v0.3.7...v0.3.8)
